@@ -1,0 +1,1170 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Crear archivo Docker Compose con servicio PostgreSQL 16-alpine": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207724382
+      },
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207764374
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208869908
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208915898
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208955726
+      }
+    ],
+    "1.2 Crear script de inicialización de esquemas y usuarios por servicio": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207724757
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208870394
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208961613
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209152043
+      }
+    ],
+    "1.3 Crear archivos de configuración de entorno": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207725156
+      },
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207765493
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208870816
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208916658
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208956646
+      }
+    ],
+    "2.1 Crear migración V0 — Creación de esquemas": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207725400
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208871133
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209156514
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209185767
+      }
+    ],
+    "2.2 Crear migración V1 — Tabla `access.branches`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207725576
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208871438
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209189235
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209215607
+      }
+    ],
+    "2.3 Crear migraciones V2 — Tablas de usuarios, roles y permisos": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207725743
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208871853
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209219458
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209275046
+      }
+    ],
+    "2.4 Crear migración V3 — Tabla `access.refresh_tokens`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207725924
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208872487
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209220241
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209275682
+      }
+    ],
+    "2.5 Crear migración V4 — Tabla `access.system_menu_options`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207726112
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208872701
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209221244
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209276553
+      }
+    ],
+    "2.6 Crear migración V5 — Tabla `access.system_parameters`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207726299
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208872872
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209222019
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209277421
+      }
+    ],
+    "2.7 Crear migración V6 — Tabla `access.catalogs`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207726484
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208873065
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209222826
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209278266
+      }
+    ],
+    "2.8 Crear migración V7 — Tabla `access.audit_logs` (particionada)": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207726667
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208873243
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209282955
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209324967
+      }
+    ],
+    "2.9 Crear migración V8 — Tabla `access.notifications`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207727105
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208873494
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209283828
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209325800
+      }
+    ],
+    "3. Checkpoint — Verificar migraciones del schema `access`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207727308
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208873702
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209340565
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209344057
+      }
+    ],
+    "4.1 Crear migración V9 — Tabla `inventory.categories`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207727533
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208874089
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209348558
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209396276
+      }
+    ],
+    "4.2 Crear migración V10 — Tabla `inventory.products`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207727737
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208874361
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209399940
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209453213
+      }
+    ],
+    "4.3 Crear migración V11 — Tabla `inventory.product_stock`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207727949
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208874584
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209457412
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209525667
+      }
+    ],
+    "4.4 Crear migración V12 — Tabla `inventory.inventory_movements`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207728129
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208874799
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209458222
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209526373
+      }
+    ],
+    "4.5 Crear migración V13 — Tabla `inventory.suppliers`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207728354
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208875134
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209459084
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209527221
+      }
+    ],
+    "4.6 Crear migración V14 — Tablas `inventory.purchase_orders` y `purchase_order_details`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207728525
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208875438
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209532182
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209586062
+      }
+    ],
+    "5.1 Crear migración V15 — Tabla `sales.customers`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207728958
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208875667
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209590711
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209643817
+      }
+    ],
+    "5.2 Crear migración V16 — Tablas `sales.cash_registers` y `cash_register_movements`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207729178
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208875900
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209591614
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209644786
+      }
+    ],
+    "5.3 Crear migración V17 — Tablas `sales.accounts` y `account_details`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207729333
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208876343
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209649044
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209738945
+      }
+    ],
+    "5.4 Crear migración V18 — Tablas `sales.sales` y `sale_details`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207729527
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208876705
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209650001
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209739205
+      }
+    ],
+    "6.1 Crear migración V19 — Tabla `reporting.daily_sales_summary`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207729725
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208877028
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209744121
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209874831
+      }
+    ],
+    "6.2 Crear migración V20 — Tabla `reporting.monthly_sales_summary`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207729918
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208877486
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209744829
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209875186
+      }
+    ],
+    "6.3 Crear migración V21 — Tabla `reporting.product_sales_ranking`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207730093
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208877814
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209745708
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209875759
+      }
+    ],
+    "6.4 Crear migración V22 — Tabla `reporting.inventory_status_view`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207730277
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208878004
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209746688
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209876416
+      }
+    ],
+    "7. Checkpoint — Verificar migraciones de todos los esquemas": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207730445
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208878333
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209881563
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209885566
+      }
+    ],
+    "8.1 Crear migración V23 — Seed de roles y permisos": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207730743
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208878625
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209889864
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209958257
+      }
+    ],
+    "8.2 Crear migración V24 — Seed de usuario admin": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207731021
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208878882
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209962702
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210084835
+      }
+    ],
+    "8.3 Crear migración V25 — Seed de parámetros del sistema": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207731200
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208879082
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209963386
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210085789
+      }
+    ],
+    "8.4 Crear migración V26 — Seed de catálogos": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207731401
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208879513
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209964204
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210083462
+      }
+    ],
+    "8.5 Crear migración V27 — Seed de cliente por defecto": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207731560
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208879694
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209965045
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210084098
+      }
+    ],
+    "9.1 Configurar Flyway en Access Service (servicio principal de migraciones)": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207731800
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208879904
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210092288
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210283064
+      }
+    ],
+    "9.2 Configurar Spring Boot para Sales Service": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207732163
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208880075
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210288399
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210379824
+      }
+    ],
+    "9.3 Configurar Spring Boot para Inventory Service": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207732326
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208880284
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210289139
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210380540
+      }
+    ],
+    "9.4 Configurar Spring Boot para Reporting Service": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207732509
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208880543
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210290084
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210381476
+      }
+    ],
+    "10. Checkpoint — Verificar configuración de servicios": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207732683
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208881672
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210387064
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210391236
+      }
+    ],
+    "11.1 Agregar dependencias de testing en `pom.xml`": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207733055
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208882485
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210395787
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210637224
+      }
+    ],
+    "11.2 Crear clase base de test con Testcontainers": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207733263
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208882915
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210641622
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210960405
+      }
+    ],
+    "12.1 Crear tests de validación de estructura de esquemas": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207733443
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208883401
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210967104
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211882581
+      }
+    ],
+    "12.2 Crear tests de validación de constraints": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207733629
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208884342
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210967747
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211883378
+      }
+    ],
+    "12.3 Crear tests de validación de índices": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207733808
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208884768
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210968548
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211884068
+      }
+    ],
+    "13.1 Crear tests de ejecución de migraciones": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207734026
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208885288
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210969328
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211885400
+      }
+    ],
+    "13.2 Crear tests de idempotencia de migraciones": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207734318
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208885735
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210970205
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211886044
+      }
+    ],
+    "14.1 Crear tests de FK cruzadas entre esquemas": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207734487
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208885968
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211892361
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785212678644
+      }
+    ],
+    "14.2 Crear tests de comportamiento ON DELETE": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207734684
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208886175
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211893234
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785212679818
+      }
+    ],
+    "14.3 Crear tests de seed data": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207734871
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208886441
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211894179
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785212677780
+      }
+    ],
+    "15. Checkpoint final — Verificar que toda la suite de tests pasa": [
+      {
+        "executionId": "b1c26072-bcad-4e8d-874f-fd195385f1e4",
+        "chatSessionId": "sess_c126e1a4-07d8-4994-b59b-68d6f5fa6ae6",
+        "timestamp": 1785207735065
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785208886793
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785212685727
+      },
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785212880457
+      }
+    ],
+    "1. Configurar infraestructura Docker y entorno base": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209152476
+      }
+    ],
+    "2. Crear scripts de migración Flyway — Schema `access` (V0-V8)": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209326048
+      }
+    ],
+    "4. Crear scripts de migración Flyway — Schema `inventory` (V9-V14)": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209586480
+      }
+    ],
+    "6. Crear scripts de migración Flyway — Schema `reporting` (V19-V22)": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785209876595
+      }
+    ],
+    "8. Crear scripts de seed data (V23-V27)": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210086116
+      }
+    ],
+    "9. Configurar Flyway y Spring Boot para cada microservicio": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210381940
+      }
+    ],
+    "11. Configurar infraestructura de testing con Testcontainers": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785210961497
+      }
+    ],
+    "12. Implementar tests de validación de esquema": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211884479
+      }
+    ],
+    "13. Implementar tests de migración Flyway": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785211886555
+      }
+    ],
+    "14. Implementar tests de integridad referencial": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785212680421
+      }
+    ],
+    "5. Crear scripts de migración Flyway — Schema `sales` (V15-V18)": [
+      {
+        "executionId": "fff9ff64-90b0-4902-bf16-2b188ba23441",
+        "chatSessionId": "sess_8af31798-f42e-4c0d-b112-9857fa9a70ae",
+        "timestamp": 1785212894776
+      }
+    ]
+  }
+}

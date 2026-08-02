@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: sales-service
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:drinks_db}
+    username: ${DB_USER:sales_user}
+    password: ${DB_PASSWORD:dev_password_sales}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: sales
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8082

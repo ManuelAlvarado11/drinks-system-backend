@@ -1,0 +1,417 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Crear proyecto Maven drinks-common con pom.xml y estructura de paquetes": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653115038
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653135186
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654080430
+      }
+    ],
+    "1.2 Implementar JwtTokenProvider y SecurityConstants": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653115404
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654085171
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654653904
+      }
+    ],
+    "1.3 Implementar JwtAuthenticationFilter y UserPrincipal": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653115861
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654659922
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654936232
+      }
+    ],
+    "1.4 Implementar RequiresPermission (anotación de autorización)": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653116261
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654943266
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655298971
+      }
+    ],
+    "1.5 Implementar jerarquía de excepciones y GlobalExceptionHandler": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653116509
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654085892
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654654704
+      }
+    ],
+    "1.6 Implementar CorrelationIdFilter y logging": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653116816
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654661041
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654938789
+      }
+    ],
+    "1.7 Implementar DTOs compartidos (PageResponse, ApiResponse)": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653117272
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654086656
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654651853
+      }
+    ],
+    "1.8 Implementar BaseRestClient con retry y propagación de headers": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653117593
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654661923
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654937560
+      }
+    ],
+    "1.9 Implementar interfaces de auditoría": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653118049
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654087463
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785654653019
+      }
+    ],
+    "1.10 Instalar drinks-common en el repositorio Maven local": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653118284
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655303861
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655473503
+      }
+    ],
+    "2. Checkpoint - Verificar compilación de drinks-common": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653118603
+      }
+    ],
+    "3.1 Crear archivo Docker Compose completo": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653118900
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655480385
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785686894607
+      }
+    ],
+    "3.2 Crear configuración de Nginx (API Gateway)": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653119408
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655481336
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785686895313
+      }
+    ],
+    "3.3 Crear Dockerfile multi-stage (patrón compartido)": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653119735
+      }
+    ],
+    "3.4 Crear archivo .env con todas las variables del sistema": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653119953
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655482191
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785686895880
+      }
+    ],
+    "4. Checkpoint - Verificar infraestructura Docker": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653120223
+      }
+    ],
+    "5.1 Crear estructura de proyecto para sales-service": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653120506
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655483420
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785686896741
+      }
+    ],
+    "5.2 Crear estructura de proyecto para inventory-service": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653120802
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655483999
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785686897487
+      }
+    ],
+    "5.3 Crear estructura de proyecto para reporting-service": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653121368
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785686906027
+      }
+    ],
+    "5.4 Actualizar access-service existente: agregar dependencia drinks-common y ajustar estructura": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653121742
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785686907129
+      }
+    ],
+    "6.1 Crear archivos de configuración para sales-service": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653122119
+      }
+    ],
+    "6.2 Crear archivos de configuración para inventory-service": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653122534
+      }
+    ],
+    "6.3 Crear archivos de configuración para reporting-service": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653122785
+      }
+    ],
+    "6.4 Actualizar configuración del access-service existente": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653123098
+      }
+    ],
+    "7.1 Crear SecurityConfig para cada microservicio": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653123504
+      }
+    ],
+    "7.2 Crear configuración OpenAPI/Swagger por servicio": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653123825
+      }
+    ],
+    "8. Checkpoint - Verificar compilación de todos los servicios": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653124087
+      }
+    ],
+    "9.1 Crear proyecto Angular y estructura de directorios": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653124317
+      }
+    ],
+    "9.2 Implementar auth.service.ts y token-storage.service.ts": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653124789
+      }
+    ],
+    "9.3 Implementar interceptores HTTP (auth, error, correlation)": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653124974
+      }
+    ],
+    "9.4 Implementar guards de ruta y directiva de permisos": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653125330
+      }
+    ],
+    "9.5 Configurar routing con lazy loading y layout principal": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653125596
+      }
+    ],
+    "9.6 Crear componentes compartidos base": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653125838
+      }
+    ],
+    "10. Checkpoint - Verificar compilación del frontend": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653126162
+      }
+    ],
+    "14. Checkpoint final - Verificar todo el sistema": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785653126575
+      }
+    ],
+    "1. Crear biblioteca compartida drinks-common": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785655473991
+      }
+    ]
+  }
+}

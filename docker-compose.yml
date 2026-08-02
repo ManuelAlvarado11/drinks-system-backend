@@ -1,0 +1,165 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL
+  postgres-drinks:
+    image: postgres:16-alpine
+    container_name: drinks-db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-drinks_db}
+      POSTGRES_USER: ${DB_ADMIN_USER:-drinks_admin}
+      POSTGRES_PASSWORD: ${DB_ADMIN_PASSWORD}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - drinks_data:/var/lib/postgresql/data
+      - ./docker/init-schemas.sql:/docker-entrypoint-initdb.d/01-init-schemas.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_ADMIN_USER:-drinks_admin} -d ${DB_NAME:-drinks_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - drinks-network
+
+  # API Gateway
+  nginx-gateway:
+    image: nginx:1.25-alpine
+    container_name: drinks-gateway
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      access-service:
+        condition: service_healthy
+      sales-service:
+        condition: service_healthy
+      inventory-service:
+        condition: service_healthy
+      reporting-service:
+        condition: service_healthy
+    networks:
+      - drinks-network
+
+  # Access Service
+  access-service:
+    build:
+      context: ./access-service
+      dockerfile: Dockerfile
+    container_name: drinks-access
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DB_HOST=postgres-drinks
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME:-drinks_db}
+      - DB_ADMIN_USER=${DB_ADMIN_USER:-drinks_admin}
+      - DB_ADMIN_PASSWORD=${DB_ADMIN_PASSWORD}
+      - ACCESS_DB_USER=${ACCESS_DB_USER}
+      - ACCESS_DB_PASSWORD=${ACCESS_DB_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRATION_MINUTES=15
+      - REFRESH_TOKEN_EXPIRATION_DAYS=7
+    depends_on:
+      postgres-drinks:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - drinks-network
+
+  # Sales Service
+  sales-service:
+    build:
+      context: ./sales-service
+      dockerfile: Dockerfile
+    container_name: drinks-sales
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DB_HOST=postgres-drinks
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME:-drinks_db}
+      - SALES_DB_USER=${SALES_DB_USER}
+      - SALES_DB_PASSWORD=${SALES_DB_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+      - INVENTORY_SERVICE_URL=http://inventory-service:8083
+    depends_on:
+      postgres-drinks:
+        condition: service_healthy
+      access-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - drinks-network
+
+  # Inventory Service
+  inventory-service:
+    build:
+      context: ./inventory-service
+      dockerfile: Dockerfile
+    container_name: drinks-inventory
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DB_HOST=postgres-drinks
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME:-drinks_db}
+      - INVENTORY_DB_USER=${INVENTORY_DB_USER}
+      - INVENTORY_DB_PASSWORD=${INVENTORY_DB_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      postgres-drinks:
+        condition: service_healthy
+      access-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - drinks-network
+
+  # Reporting Service
+  reporting-service:
+    build:
+      context: ./reporting-service
+      dockerfile: Dockerfile
+    container_name: drinks-reporting
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DB_HOST=postgres-drinks
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME:-drinks_db}
+      - REPORTING_DB_USER=${REPORTING_DB_USER}
+      - REPORTING_DB_PASSWORD=${REPORTING_DB_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      postgres-drinks:
+        condition: service_healthy
+      access-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - drinks-network
+
+volumes:
+  drinks_data:
+
+networks:
+  drinks-network:
+    driver: bridge

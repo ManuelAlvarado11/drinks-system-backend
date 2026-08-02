@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: access-service
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:drinks_db}
+    username: ${ACCESS_DB_USER:access_user}
+    password: ${ACCESS_DB_PASSWORD:dev_password_access}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:drinks_db}
+    user: ${DB_ADMIN_USER:drinks_admin}
+    password: ${DB_ADMIN_PASSWORD:dev_password_admin}
+    locations: classpath:db/migration
+    schemas: access,sales,inventory,reporting
+    default-schema: access
+    baseline-on-migrate: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: access
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8081
+
+logging:
+  level:
+    org.flywaydb: DEBUG
