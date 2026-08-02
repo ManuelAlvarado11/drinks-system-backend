@@ -455,6 +455,11 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785690560373
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785692299365
       }
     ],
     "9.2 Implementar auth.service.ts y token-storage.service.ts": [
@@ -462,6 +467,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653124789
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785692305290
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785693767704
       }
     ],
     "9.3 Implementar interceptores HTTP (auth, error, correlation)": [
@@ -469,6 +484,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653124974
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785693774403
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695136906
       }
     ],
     "9.4 Implementar guards de ruta y directiva de permisos": [
@@ -476,6 +501,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653125330
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785693775738
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695139557
       }
     ],
     "9.5 Configurar routing con lazy loading y layout principal": [
@@ -483,6 +518,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653125596
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785692306012
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785693769489
       }
     ],
     "9.6 Crear componentes compartidos base": [
@@ -490,6 +535,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653125838
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785693777292
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695140595
       }
     ],
     "10. Checkpoint - Verificar compilación del frontend": [
@@ -497,6 +552,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653126162
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695149325
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695900962
       }
     ],
     "14. Checkpoint final - Verificar todo el sistema": [
@@ -504,6 +569,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653126575
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695930865
+      },
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785696674577
       }
     ],
     "1. Crear biblioteca compartida drinks-common": [
@@ -532,6 +607,20 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785690481262
+      }
+    ],
+    "6. Configurar Spring Boot para cada servicio": [
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695924593
+      }
+    ],
+    "9. Crear esqueleto del frontend Angular": [
+      {
+        "executionId": "1c1114cc-4f55-4fa0-9441-5eff03f6125b",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785695926132
       }
     ]
   }

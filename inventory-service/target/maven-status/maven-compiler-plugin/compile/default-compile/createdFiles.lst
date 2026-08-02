@@ -1,1 +1,4 @@
+drinks\system\inventoryservice\infrastructure\config\SecurityConfig.class
+drinks\system\inventoryservice\infrastructure\config\OpenApiConfig.class
 drinks\system\inventoryservice\InventoryServiceApplication.class
+drinks\system\inventoryservice\infrastructure\config\WebConfig.class

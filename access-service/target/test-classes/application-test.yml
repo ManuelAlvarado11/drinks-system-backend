@@ -1,9 +1,0 @@
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate:
-        default_schema: access
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true

@@ -120,7 +120,7 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Verificar/crear paquetes faltantes según la arquitectura hexagonal: `domain.port.in`, `domain.port.out`, `application.dto.request`, `application.dto.response`, `application.mapper`, `infrastructure.adapter.in.rest`, `infrastructure.adapter.out.persistence`
     - _Requisitos: 8.3, 8.5_
 
-- [ ] 6. Configurar Spring Boot para cada servicio
+- [x] 6. Configurar Spring Boot para cada servicio
   - [x] 6.1 Crear archivos de configuración para sales-service
     - Crear `application.yml`: nombre del servicio, datasource con HikariCP, JPA con schema=sales y ddl-auto=validate, server.port=8082, configuración de servicios externos (inventory URL), JWT secret, actuator endpoints
     - Crear `application-dev.yml`: valores por defecto para desarrollo local (localhost, passwords dev)
@@ -159,38 +159,38 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
 - [x] 8. Checkpoint - Verificar compilación de todos los servicios
   - Asegurar que `mvn compile` ejecuta sin errores en cada servicio (access, sales, inventory, reporting), preguntar al usuario si surgen dudas.
 
-- [ ] 9. Crear esqueleto del frontend Angular
-  - [ ] 9.1 Crear proyecto Angular y estructura de directorios
+- [x] 9. Crear esqueleto del frontend Angular
+  - [x] 9.1 Crear proyecto Angular y estructura de directorios
     - Crear proyecto `drinks-system-front/` con Angular 17, standalone components, Angular Material
     - Crear estructura: `src/app/core/` (interceptors, guards, services, models), `src/app/shared/` (components, pipes, directives), `src/app/features/` (access, sales, inventory, reporting), `src/app/layout/` (main-layout, sidebar, topbar)
     - Crear `src/environments/environment.ts` (apiUrl: http://localhost:8080) y `environment.prod.ts`
     - _Requisitos: 13.1, 13.2, 13.8_
 
-  - [ ] 9.2 Implementar auth.service.ts y token-storage.service.ts
+  - [x] 9.2 Implementar auth.service.ts y token-storage.service.ts
     - Crear `core/services/auth.service.ts`: login(username, password), logout(), refreshToken(), getAccessToken(), isAuthenticated() usando signals
     - Crear `core/services/token-storage.service.ts`: almacenamiento seguro de accessToken y refreshToken en memoria/sessionStorage
     - Crear `core/models/user.model.ts` y `api-response.model.ts`
     - _Requisitos: 13.3, 13.4, 13.7_
 
-  - [ ] 9.3 Implementar interceptores HTTP (auth, error, correlation)
+  - [x] 9.3 Implementar interceptores HTTP (auth, error, correlation)
     - Crear `core/interceptors/auth.interceptor.ts`: adjuntar JWT a requests, detectar 401 y disparar refresh, si refresh falla→logout
     - Crear `core/interceptors/error.interceptor.ts`: manejo centralizado de errores HTTP (400 validación, 403 permisos, 404, 409, 500/503/504)
     - Crear `core/interceptors/correlation.interceptor.ts`: leer X-Correlation-ID del response para debugging
     - _Requisitos: 13.3, 13.4, 13.7_
 
-  - [ ] 9.4 Implementar guards de ruta y directiva de permisos
+  - [x] 9.4 Implementar guards de ruta y directiva de permisos
     - Crear `core/guards/auth.guard.ts`: verificar autenticación, redirigir a login si no autenticado
     - Crear `core/guards/permission.guard.ts`: verificar permiso específico del route data, denegar acceso si falta permiso
     - Crear `shared/directives/has-permission.directive.ts`: directiva estructural `*hasPermission="'PERMISSION'"` para mostrar/ocultar elementos
     - _Requisitos: 13.5_
 
-  - [ ] 9.5 Configurar routing con lazy loading y layout principal
+  - [x] 9.5 Configurar routing con lazy loading y layout principal
     - Crear `app.routes.ts` con: ruta /login (público), layout principal con children lazy-loaded (access, sales, inventory, reporting) protegidos por authGuard y permissionGuard
     - Crear `app.config.ts` con provideHttpClient(withInterceptors), provideRouter, provideAnimations
     - Crear componentes de layout: `MainLayoutComponent`, `SidebarComponent`, `TopbarComponent`
     - _Requisitos: 13.1, 13.2, 13.5_
 
-  - [ ] 9.6 Crear componentes compartidos base
+  - [x] 9.6 Crear componentes compartidos base
     - Crear `shared/components/data-table/`: tabla genérica con paginación y ordenamiento
     - Crear `shared/components/confirm-dialog/`: diálogo de confirmación reutilizable
     - Crear `shared/components/loading-spinner/`: spinner de carga global
@@ -198,7 +198,7 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Crear `shared/pipes/currency-bo.pipe.ts` (formato moneda boliviana) y `date-format.pipe.ts`
     - _Requisitos: 13.6_
 
-- [ ] 10. Checkpoint - Verificar compilación del frontend
+- [x] 10. Checkpoint - Verificar compilación del frontend
   - Asegurar que `ng build` ejecuta sin errores en el proyecto Angular, preguntar al usuario si surgen dudas.
 
 - [ ] 11. Tests de propiedades (property-based testing)
@@ -270,7 +270,7 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Property test: permission guard autoriza/deniega correctamente según permisos
     - _Requisitos: 13.3, 13.4, 13.5_
 
-- [ ] 14. Checkpoint final - Verificar todo el sistema
+- [x] 14. Checkpoint final - Verificar todo el sistema
   - Asegurar que todos los tests pasan en cada módulo, preguntar al usuario si surgen dudas.
 
 ## Notas
