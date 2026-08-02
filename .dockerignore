@@ -1,0 +1,17 @@
+**/target/
+**/.idea/
+**/*.iml
+.git/
+.gitignore
+.kiro/
+**/*.log
+**/compile_out*.txt
+**/compile_err*.txt
+**/compile_error*.txt
+**/compile_output*.txt
+**/install_out.txt
+**/install_err.txt
+**/delete_test_result.txt
+.env
+docker-compose.yml
+README.md
