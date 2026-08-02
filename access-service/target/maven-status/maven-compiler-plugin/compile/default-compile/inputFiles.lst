@@ -1,2 +1,5 @@
-c:\Users\manue\Development\drinks-system\drinks-system-back\access-service\src\main\java\drinks\system\accessservice\AccessServiceApplication.java
-c:\Users\manue\Development\drinks-system\drinks-system-back\access-service\src\main\java\drinks\system\accessservice\config\FlywayConfig.java
+C:\Users\manue\Development\drinks-system\drinks-system-back\access-service\src\main\java\drinks\system\accessservice\AccessServiceApplication.java
+C:\Users\manue\Development\drinks-system\drinks-system-back\access-service\src\main\java\drinks\system\accessservice\config\FlywayConfig.java
+C:\Users\manue\Development\drinks-system\drinks-system-back\access-service\src\main\java\drinks\system\accessservice\infrastructure\config\OpenApiConfig.java
+C:\Users\manue\Development\drinks-system\drinks-system-back\access-service\src\main\java\drinks\system\accessservice\infrastructure\config\SecurityConfig.java
+C:\Users\manue\Development\drinks-system\drinks-system-back\access-service\src\main\java\drinks\system\accessservice\infrastructure\config\WebConfig.java

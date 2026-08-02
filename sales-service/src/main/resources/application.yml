@@ -3,11 +3,15 @@ spring:
     name: sales-service
   datasource:
     url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:drinks_db}
-    username: ${DB_USER:sales_user}
-    password: ${DB_PASSWORD:dev_password_sales}
+    username: ${SALES_DB_USER:sales_user}
+    password: ${SALES_DB_PASSWORD:dev_password_sales}
     driver-class-name: org.postgresql.Driver
-  flyway:
-    enabled: false
+    hikari:
+      maximum-pool-size: ${HIKARI_MAX_POOL_SIZE:10}
+      minimum-idle: ${HIKARI_MIN_IDLE:5}
+      idle-timeout: 300000
+      connection-timeout: 20000
+      max-lifetime: 1200000
   jpa:
     hibernate:
       ddl-auto: validate
@@ -15,6 +19,29 @@ spring:
       hibernate:
         default_schema: sales
         dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
 
 server:
   port: 8082
+
+services:
+  inventory:
+    url: ${INVENTORY_SERVICE_URL:http://localhost:8083}
+    timeout: 30s
+    retry:
+      max-attempts: 2
+      initial-backoff: 500ms
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:dev-secret-key-for-local-development-only-minimum-32-chars!!}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:15}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized

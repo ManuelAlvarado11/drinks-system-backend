@@ -64,10 +64,10 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Verificar que el artefacto `drinks.system:drinks-common:1.0.0-SNAPSHOT` está disponible
     - _Requisitos: 8.4, 8.5_
 
-- [~] 2. Checkpoint - Verificar compilación de drinks-common
+- [x] 2. Checkpoint - Verificar compilación de drinks-common
   - Asegurar que `mvn compile` ejecuta sin errores en drinks-common, preguntar al usuario si surgen dudas.
 
-- [ ] 3. Configurar infraestructura Docker
+- [x] 3. Configurar infraestructura Docker
   - [x] 3.1 Crear archivo Docker Compose completo
     - Crear `docker-compose.yml` en la raíz del proyecto con los 6 servicios: postgres-drinks (PostgreSQL 16-alpine), nginx-gateway (Nginx 1.25-alpine), access-service, sales-service, inventory-service, reporting-service
     - Configurar red interna `drinks-network`, volumen `drinks_data`, health checks con dependencias (condition: service_healthy)
@@ -82,7 +82,7 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Agregar generación de X-Correlation-ID ($request_id), endpoint /health y página de error 504
     - _Requisitos: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9_
 
-  - [~] 3.3 Crear Dockerfile multi-stage (patrón compartido)
+  - [x] 3.3 Crear Dockerfile multi-stage (patrón compartido)
     - Crear `Dockerfile` en cada directorio de servicio (access-service/, sales-service/, inventory-service/, reporting-service/)
     - Stage 1 (builder): eclipse-temurin:17-jdk-alpine, copiar pom.xml + mvnw, dependency:go-offline, copiar src, package -DskipTests
     - Stage 2 (runtime): eclipse-temurin:17-jre-alpine, usuario no-root (appuser), copiar JAR, HEALTHCHECK con wget, EXPOSE puerto configurable
@@ -93,10 +93,10 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Verificar que `.env` ya existe y contiene los valores necesarios (sin sobreescribir secretos)
     - _Requisitos: 9.1, 9.5_
 
-- [~] 4. Checkpoint - Verificar infraestructura Docker
+- [x] 4. Checkpoint - Verificar infraestructura Docker
   - Asegurar que la configuración Docker es correcta sintácticamente, preguntar al usuario si surgen dudas.
 
-- [ ] 5. Scaffolding de microservicios backend
+- [x] 5. Scaffolding de microservicios backend
   - [x] 5.1 Crear estructura de proyecto para sales-service
     - Crear `sales-service/pom.xml` con dependencias: spring-boot-starter-webmvc, spring-boot-starter-data-jpa, spring-boot-starter-security, spring-boot-starter-validation, spring-boot-starter-actuator, postgresql, drinks-common, springdoc-openapi, lombok
     - Crear estructura de paquetes completa: `drinks.system.salesservice.domain.model`, `.domain.port.in`, `.domain.port.out`, `.domain.exception`, `.application.service`, `.application.dto.request`, `.application.dto.response`, `.application.mapper`, `.infrastructure.adapter.in.rest`, `.infrastructure.adapter.out.persistence.entity`, `.infrastructure.adapter.out.persistence.repository`, `.infrastructure.adapter.out.persistence.adapter`, `.infrastructure.adapter.out.client`, `.infrastructure.config`
@@ -109,88 +109,88 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Crear `InventoryServiceApplication.java` con @SpringBootApplication
     - _Requisitos: 8.1, 8.2, 8.3, 8.5, 8.6_
 
-  - [-] 5.3 Crear estructura de proyecto para reporting-service
+  - [x] 5.3 Crear estructura de proyecto para reporting-service
     - Crear `reporting-service/pom.xml` con dependencias similares + exportación (poi para Excel, itextpdf para PDF)
     - Crear estructura de paquetes completa: `drinks.system.reportingservice.domain.model`, `.domain.port.in`, `.domain.port.out`, `.domain.exception`, `.application.service`, `.application.dto.request`, `.application.dto.response`, `.application.mapper`, `.infrastructure.adapter.in.rest`, `.infrastructure.adapter.out.persistence.entity`, `.infrastructure.adapter.out.persistence.repository`, `.infrastructure.adapter.out.persistence.adapter`, `.infrastructure.config`
     - Crear `ReportingServiceApplication.java` con @SpringBootApplication
     - _Requisitos: 8.1, 8.2, 8.3, 8.5, 8.6_
 
-  - [-] 5.4 Actualizar access-service existente: agregar dependencia drinks-common y ajustar estructura
+  - [x] 5.4 Actualizar access-service existente: agregar dependencia drinks-common y ajustar estructura
     - Agregar dependencia `drinks-common` al `pom.xml` existente del access-service
     - Verificar/crear paquetes faltantes según la arquitectura hexagonal: `domain.port.in`, `domain.port.out`, `application.dto.request`, `application.dto.response`, `application.mapper`, `infrastructure.adapter.in.rest`, `infrastructure.adapter.out.persistence`
     - _Requisitos: 8.3, 8.5_
 
 - [ ] 6. Configurar Spring Boot para cada servicio
-  - [~] 6.1 Crear archivos de configuración para sales-service
+  - [x] 6.1 Crear archivos de configuración para sales-service
     - Crear `application.yml`: nombre del servicio, datasource con HikariCP, JPA con schema=sales y ddl-auto=validate, server.port=8082, configuración de servicios externos (inventory URL), JWT secret, actuator endpoints
     - Crear `application-dev.yml`: valores por defecto para desarrollo local (localhost, passwords dev)
     - Crear `application-prod.yml`: sin valores por defecto, error sin stacktrace
     - Crear `logback-spring.xml`: perfiles dev (PLAIN_CONSOLE) y prod (JSON_CONSOLE con logstash encoder)
     - _Requisitos: 9.1, 9.2, 9.3, 9.4, 9.6, 7.1_
 
-  - [~] 6.2 Crear archivos de configuración para inventory-service
+  - [x] 6.2 Crear archivos de configuración para inventory-service
     - Crear `application.yml`: datasource con schema=inventory, server.port=8083, JWT secret, actuator
     - Crear `application-dev.yml`, `application-prod.yml`, `logback-spring.xml` (mismo patrón que sales-service)
     - _Requisitos: 9.1, 9.2, 9.3, 9.4, 9.6, 7.1_
 
-  - [~] 6.3 Crear archivos de configuración para reporting-service
+  - [x] 6.3 Crear archivos de configuración para reporting-service
     - Crear `application.yml`: datasource con schema=reporting, server.port=8084, JWT secret, actuator
     - Crear `application-dev.yml`, `application-prod.yml`, `logback-spring.xml` (mismo patrón)
     - _Requisitos: 9.1, 9.2, 9.3, 9.4, 9.6, 7.1_
 
-  - [~] 6.4 Actualizar configuración del access-service existente
+  - [x] 6.4 Actualizar configuración del access-service existente
     - Verificar/actualizar `application.yml` para alinear con el patrón definido: JWT configurable, actuator, HikariCP externalizado
     - Crear `application-prod.yml` si no existe, crear/actualizar `logback-spring.xml`
     - _Requisitos: 9.1, 9.2, 9.3, 9.4, 7.1_
 
-- [ ] 7. Implementar configuración de seguridad por servicio
-  - [~] 7.1 Crear SecurityConfig para cada microservicio
+- [x] 7. Implementar configuración de seguridad por servicio
+  - [x] 7.1 Crear SecurityConfig para cada microservicio
     - Crear `SecurityConfig.java` en cada servicio (`infrastructure.config`): @EnableWebSecurity, SecurityFilterChain con: csrf disabled, sessionManagement STATELESS, rutas públicas (/actuator/health, /actuator/info, /swagger-ui/**, /v3/api-docs/**), todas las demás requieren autenticación
     - Registrar JwtAuthenticationFilter antes de UsernamePasswordAuthenticationFilter
     - Registrar CorrelationIdFilter con orden HIGHEST_PRECEDENCE
     - En access-service: agregar rutas públicas adicionales (/api/access/v1/auth/login, /api/access/v1/auth/refresh)
     - _Requisitos: 4.4, 4.8, 4.10, 4.11_
 
-  - [~] 7.2 Crear configuración OpenAPI/Swagger por servicio
+  - [x] 7.2 Crear configuración OpenAPI/Swagger por servicio
     - Crear `OpenApiConfig.java` en cada servicio: @Configuration con @Bean OpenAPI que incluya info (nombre, versión, descripción), securityScheme (bearerAuth JWT)
     - Configurar que Swagger UI solo esté disponible en perfil `dev` (propiedad springdoc.swagger-ui.enabled)
     - _Requisitos: 12.1, 12.2, 12.3, 12.4_
 
-- [~] 8. Checkpoint - Verificar compilación de todos los servicios
+- [x] 8. Checkpoint - Verificar compilación de todos los servicios
   - Asegurar que `mvn compile` ejecuta sin errores en cada servicio (access, sales, inventory, reporting), preguntar al usuario si surgen dudas.
 
 - [ ] 9. Crear esqueleto del frontend Angular
-  - [~] 9.1 Crear proyecto Angular y estructura de directorios
+  - [ ] 9.1 Crear proyecto Angular y estructura de directorios
     - Crear proyecto `drinks-system-front/` con Angular 17, standalone components, Angular Material
     - Crear estructura: `src/app/core/` (interceptors, guards, services, models), `src/app/shared/` (components, pipes, directives), `src/app/features/` (access, sales, inventory, reporting), `src/app/layout/` (main-layout, sidebar, topbar)
     - Crear `src/environments/environment.ts` (apiUrl: http://localhost:8080) y `environment.prod.ts`
     - _Requisitos: 13.1, 13.2, 13.8_
 
-  - [~] 9.2 Implementar auth.service.ts y token-storage.service.ts
+  - [ ] 9.2 Implementar auth.service.ts y token-storage.service.ts
     - Crear `core/services/auth.service.ts`: login(username, password), logout(), refreshToken(), getAccessToken(), isAuthenticated() usando signals
     - Crear `core/services/token-storage.service.ts`: almacenamiento seguro de accessToken y refreshToken en memoria/sessionStorage
     - Crear `core/models/user.model.ts` y `api-response.model.ts`
     - _Requisitos: 13.3, 13.4, 13.7_
 
-  - [~] 9.3 Implementar interceptores HTTP (auth, error, correlation)
+  - [ ] 9.3 Implementar interceptores HTTP (auth, error, correlation)
     - Crear `core/interceptors/auth.interceptor.ts`: adjuntar JWT a requests, detectar 401 y disparar refresh, si refresh falla→logout
     - Crear `core/interceptors/error.interceptor.ts`: manejo centralizado de errores HTTP (400 validación, 403 permisos, 404, 409, 500/503/504)
     - Crear `core/interceptors/correlation.interceptor.ts`: leer X-Correlation-ID del response para debugging
     - _Requisitos: 13.3, 13.4, 13.7_
 
-  - [~] 9.4 Implementar guards de ruta y directiva de permisos
+  - [ ] 9.4 Implementar guards de ruta y directiva de permisos
     - Crear `core/guards/auth.guard.ts`: verificar autenticación, redirigir a login si no autenticado
     - Crear `core/guards/permission.guard.ts`: verificar permiso específico del route data, denegar acceso si falta permiso
     - Crear `shared/directives/has-permission.directive.ts`: directiva estructural `*hasPermission="'PERMISSION'"` para mostrar/ocultar elementos
     - _Requisitos: 13.5_
 
-  - [~] 9.5 Configurar routing con lazy loading y layout principal
+  - [ ] 9.5 Configurar routing con lazy loading y layout principal
     - Crear `app.routes.ts` con: ruta /login (público), layout principal con children lazy-loaded (access, sales, inventory, reporting) protegidos por authGuard y permissionGuard
     - Crear `app.config.ts` con provideHttpClient(withInterceptors), provideRouter, provideAnimations
     - Crear componentes de layout: `MainLayoutComponent`, `SidebarComponent`, `TopbarComponent`
     - _Requisitos: 13.1, 13.2, 13.5_
 
-  - [~] 9.6 Crear componentes compartidos base
+  - [ ] 9.6 Crear componentes compartidos base
     - Crear `shared/components/data-table/`: tabla genérica con paginación y ordenamiento
     - Crear `shared/components/confirm-dialog/`: diálogo de confirmación reutilizable
     - Crear `shared/components/loading-spinner/`: spinner de carga global
@@ -198,7 +198,7 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Crear `shared/pipes/currency-bo.pipe.ts` (formato moneda boliviana) y `date-format.pipe.ts`
     - _Requisitos: 13.6_
 
-- [~] 10. Checkpoint - Verificar compilación del frontend
+- [ ] 10. Checkpoint - Verificar compilación del frontend
   - Asegurar que `ng build` ejecuta sin errores en el proyecto Angular, preguntar al usuario si surgen dudas.
 
 - [ ] 11. Tests de propiedades (property-based testing)
@@ -270,7 +270,7 @@ Este plan cubre la implementación de la infraestructura arquitectónica complet
     - Property test: permission guard autoriza/deniega correctamente según permisos
     - _Requisitos: 13.3, 13.4, 13.5_
 
-- [~] 14. Checkpoint final - Verificar todo el sistema
+- [ ] 14. Checkpoint final - Verificar todo el sistema
   - Asegurar que todos los tests pasan en cada módulo, preguntar al usuario si surgen dudas.
 
 ## Notas

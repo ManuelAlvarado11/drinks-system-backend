@@ -1,2 +1,5 @@
 drinks\system\accessservice\AccessServiceApplication.class
 drinks\system\accessservice\config\FlywayConfig.class
+drinks\system\accessservice\infrastructure\config\OpenApiConfig.class
+drinks\system\accessservice\infrastructure\config\SecurityConfig.class
+drinks\system\accessservice\infrastructure\config\WebConfig.class

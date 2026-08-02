@@ -176,6 +176,11 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653118603
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690489464
       }
     ],
     "3.1 Crear archivo Docker Compose completo": [
@@ -217,6 +222,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653119735
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689685458
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690180773
       }
     ],
     "3.4 Crear archivo .env con todas las variables del sistema": [
@@ -241,6 +256,11 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653120223
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690491468
       }
     ],
     "5.1 Crear estructura de proyecto para sales-service": [
@@ -287,6 +307,11 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785686906027
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689676604
       }
     ],
     "5.4 Actualizar access-service existente: agregar dependencia drinks-common y ajustar estructura": [
@@ -299,6 +324,11 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785686907129
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689677821
       }
     ],
     "6.1 Crear archivos de configuración para sales-service": [
@@ -306,6 +336,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653122119
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689687075
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690182269
       }
     ],
     "6.2 Crear archivos de configuración para inventory-service": [
@@ -313,6 +353,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653122534
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689688846
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690185519
       }
     ],
     "6.3 Crear archivos de configuración para reporting-service": [
@@ -320,6 +370,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653122785
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689690122
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690186981
       }
     ],
     "6.4 Actualizar configuración del access-service existente": [
@@ -327,6 +387,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653123098
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689691053
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690187940
       }
     ],
     "7.1 Crear SecurityConfig para cada microservicio": [
@@ -334,6 +404,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653123504
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690196650
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690478051
       }
     ],
     "7.2 Crear configuración OpenAPI/Swagger por servicio": [
@@ -341,6 +421,16 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653123825
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690197976
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690479917
       }
     ],
     "8. Checkpoint - Verificar compilación de todos los servicios": [
@@ -348,6 +438,11 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653124087
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690494011
       }
     ],
     "9.1 Crear proyecto Angular y estructura de directorios": [
@@ -355,6 +450,11 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785653124317
+      },
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690560373
       }
     ],
     "9.2 Implementar auth.service.ts y token-storage.service.ts": [
@@ -411,6 +511,27 @@
         "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
         "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
         "timestamp": 1785655473991
+      }
+    ],
+    "5. Scaffolding de microservicios backend": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785689678720
+      }
+    ],
+    "3. Configurar infraestructura Docker": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690184120
+      }
+    ],
+    "7. Implementar configuración de seguridad por servicio": [
+      {
+        "executionId": "387b3bee-153f-43fa-a986-4d36dc1badea",
+        "chatSessionId": "sess_d36126db-d4f7-482b-b72a-13887ab8c0ba",
+        "timestamp": 1785690481262
       }
     ]
   }

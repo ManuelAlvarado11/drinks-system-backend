@@ -1,0 +1,4 @@
+drinks\system\reportingservice\infrastructure\config\SecurityConfig.class
+drinks\system\reportingservice\infrastructure\config\OpenApiConfig.class
+drinks\system\reportingservice\ReportingServiceApplication.class
+drinks\system\reportingservice\infrastructure\config\WebConfig.class
