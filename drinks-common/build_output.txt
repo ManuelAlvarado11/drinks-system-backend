@@ -1,0 +1,36 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< drinks.system:drinks-common >---------------------
+[INFO] Building drinks-common 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ drinks-common ---
+[INFO] skip non existing resourceDirectory C:\Users\manue\Development\drinks-system\drinks-system-back\drinks-common\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\manue\Development\drinks-system\drinks-system-back\drinks-common\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ drinks-common ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 25 source files with javac [debug parameters release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/manue/Development/drinks-system/drinks-system-back/drinks-common/src/main/java/drinks/system/common/security/JwtAuthenticationFilter.java:[5,45] package com.fasterxml.jackson.datatype.jsr310 does not exist
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.665 s
+[INFO] Finished at: 2026-08-02T20:08:43-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.15.0:compile (default-compile) on project drinks-common: Compilation failure
+[ERROR] /C:/Users/manue/Development/drinks-system/drinks-system-back/drinks-common/src/main/java/drinks/system/common/security/JwtAuthenticationFilter.java:[5,45] package com.fasterxml.jackson.datatype.jsr310 does not exist
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

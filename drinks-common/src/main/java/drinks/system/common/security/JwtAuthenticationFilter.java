@@ -1,6 +1,8 @@
 package drinks.system.common.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import drinks.system.common.exception.ErrorResponse;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
@@ -31,12 +33,14 @@ import java.time.Instant;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtTokenProvider jwtTokenProvider;
-    private final ObjectMapper objectMapper;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
+            .registerModule(new JavaTimeModule())
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-    public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider, ObjectMapper objectMapper) {
+    private final JwtTokenProvider jwtTokenProvider;
+
+    public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider) {
         this.jwtTokenProvider = jwtTokenProvider;
-        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -107,6 +111,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding("UTF-8");
-        objectMapper.writeValue(response.getOutputStream(), errorResponse);
+        OBJECT_MAPPER.writeValue(response.getOutputStream(), errorResponse);
     }
 }
