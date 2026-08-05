@@ -10,3 +10,8 @@
 # OS
 .DS_Store
 Thumbs.db
+
+/access-service/target/
+/sales-service/target/
+/inventory-service/target/
+/reporting-service/target/
