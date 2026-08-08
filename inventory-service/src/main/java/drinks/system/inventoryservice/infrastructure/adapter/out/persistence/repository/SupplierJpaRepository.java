@@ -11,8 +11,8 @@ public interface SupplierJpaRepository extends JpaRepository<SupplierEntity, Lon
     @Query("""
             SELECT s FROM SupplierEntity s
             WHERE s.isActive = true
-            AND (:search IS NULL OR LOWER(s.name) LIKE LOWER(CONCAT('%', :search, '%'))
-                 OR s.nit LIKE CONCAT('%', :search, '%'))
+            AND (:search IS NULL OR LOWER(s.name) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                 OR s.nit LIKE CONCAT('%', CAST(:search AS string), '%'))
             """)
     Page<SupplierEntity> findAllFiltered(Pageable pageable, @Param("search") String search);
 }

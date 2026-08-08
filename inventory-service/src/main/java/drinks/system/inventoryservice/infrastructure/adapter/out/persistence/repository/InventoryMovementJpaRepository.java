@@ -13,9 +13,9 @@ public interface InventoryMovementJpaRepository extends JpaRepository<InventoryM
             SELECT m FROM InventoryMovementEntity m
             WHERE (:productId IS NULL OR m.productId = :productId)
             AND (:branchId IS NULL OR m.branchId = :branchId)
-            AND (:type IS NULL OR m.movementType = :type)
-            AND (:dateFrom IS NULL OR m.createdAt >= :dateFrom)
-            AND (:dateTo IS NULL OR m.createdAt <= :dateTo)
+            AND (CAST(:type AS string) IS NULL OR m.movementType = :type)
+            AND (CAST(:dateFrom AS timestamp) IS NULL OR m.createdAt >= :dateFrom)
+            AND (CAST(:dateTo AS timestamp) IS NULL OR m.createdAt <= :dateTo)
             """)
     Page<InventoryMovementEntity> findAllFiltered(Pageable pageable,
                                                    @Param("productId") Long productId,

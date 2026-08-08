@@ -14,8 +14,8 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, Long>
             SELECT p FROM ProductEntity p
             WHERE (:categoryId IS NULL OR p.categoryId = :categoryId)
             AND (:isActive IS NULL OR p.isActive = :isActive)
-            AND (:search IS NULL OR LOWER(p.name) LIKE LOWER(CONCAT('%', :search, '%'))
-                 OR p.code LIKE CONCAT('%', :search, '%'))
+            AND (:search IS NULL OR LOWER(p.name) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                 OR p.code LIKE CONCAT('%', CAST(:search AS string), '%'))
             """)
     Page<ProductEntity> findAllFiltered(Pageable pageable,
                                          @Param("categoryId") Long categoryId,
