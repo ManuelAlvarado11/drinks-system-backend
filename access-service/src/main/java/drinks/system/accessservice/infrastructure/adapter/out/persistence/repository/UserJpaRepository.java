@@ -25,8 +25,8 @@ public interface UserJpaRepository extends JpaRepository<UserEntity, Long> {
             WHERE (:isActive IS NULL OR u.isActive = :isActive)
             AND (:branchId IS NULL OR u.branchId = :branchId)
             AND (:search IS NULL
-                 OR LOWER(u.fullName) LIKE LOWER(CONCAT('%', :search, '%'))
-                 OR LOWER(u.username) LIKE LOWER(CONCAT('%', :search, '%')))
+                 OR LOWER(u.fullName) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                 OR LOWER(u.username) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%')))
             """)
     Page<UserEntity> findAllFiltered(Pageable pageable,
                                      @Param("isActive") Boolean isActive,
