@@ -15,9 +15,9 @@ public interface CustomerJpaRepository extends JpaRepository<CustomerEntity, Lon
             SELECT c FROM CustomerEntity c
             WHERE c.isActive = true
             AND (:search IS NULL
-                 OR LOWER(c.firstName) LIKE LOWER(CONCAT('%', :search, '%'))
-                 OR LOWER(c.lastName) LIKE LOWER(CONCAT('%', :search, '%'))
-                 OR c.nitCi LIKE CONCAT('%', :search, '%'))
+                 OR LOWER(c.firstName) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                 OR LOWER(c.lastName) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                 OR c.nitCi LIKE CONCAT('%', CAST(:search AS string), '%'))
             """)
     Page<CustomerEntity> findAllFiltered(Pageable pageable, @Param("search") String search);
 }

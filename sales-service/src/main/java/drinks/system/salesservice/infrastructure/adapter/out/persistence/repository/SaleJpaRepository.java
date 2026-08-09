@@ -14,11 +14,11 @@ public interface SaleJpaRepository extends JpaRepository<SaleEntity, Long> {
     @Query("""
             SELECT s FROM SaleEntity s
             WHERE (:branchId IS NULL OR s.branchId = :branchId)
-            AND (:status IS NULL OR s.status = :status)
-            AND (:dateFrom IS NULL OR s.saleDate >= :dateFrom)
-            AND (:dateTo IS NULL OR s.saleDate <= :dateTo)
+            AND (CAST(:status AS string) IS NULL OR s.status = :status)
+            AND (CAST(:dateFrom AS timestamp) IS NULL OR s.saleDate >= :dateFrom)
+            AND (CAST(:dateTo AS timestamp) IS NULL OR s.saleDate <= :dateTo)
             AND (:customerId IS NULL OR s.customerId = :customerId)
-            AND (:paymentMethod IS NULL OR s.paymentMethod = :paymentMethod)
+            AND (CAST(:paymentMethod AS string) IS NULL OR s.paymentMethod = :paymentMethod)
             """)
     Page<SaleEntity> findAllFiltered(Pageable pageable,
                                       @Param("branchId") Long branchId,

@@ -15,10 +15,10 @@ public interface CashRegisterJpaRepository extends JpaRepository<CashRegisterEnt
     @Query("""
             SELECT c FROM CashRegisterEntity c
             WHERE (:branchId IS NULL OR c.branchId = :branchId)
-            AND (:status IS NULL OR c.status = :status)
+            AND (CAST(:status AS string) IS NULL OR c.status = :status)
             AND (:userId IS NULL OR c.userId = :userId)
-            AND (:dateFrom IS NULL OR c.openedAt >= :dateFrom)
-            AND (:dateTo IS NULL OR c.openedAt <= :dateTo)
+            AND (CAST(:dateFrom AS timestamp) IS NULL OR c.openedAt >= :dateFrom)
+            AND (CAST(:dateTo AS timestamp) IS NULL OR c.openedAt <= :dateTo)
             """)
     Page<CashRegisterEntity> findAllFiltered(Pageable pageable,
                                               @Param("branchId") Long branchId,

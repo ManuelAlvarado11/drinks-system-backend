@@ -14,9 +14,9 @@ public interface AccountJpaRepository extends JpaRepository<AccountEntity, Long>
     @Query("""
             SELECT a FROM AccountEntity a
             WHERE (:branchId IS NULL OR a.branchId = :branchId)
-            AND (:status IS NULL OR a.status = :status)
-            AND (:dateFrom IS NULL OR a.openedAt >= :dateFrom)
-            AND (:dateTo IS NULL OR a.openedAt <= :dateTo)
+            AND (CAST(:status AS string) IS NULL OR a.status = :status)
+            AND (CAST(:dateFrom AS timestamp) IS NULL OR a.openedAt >= :dateFrom)
+            AND (CAST(:dateTo AS timestamp) IS NULL OR a.openedAt <= :dateTo)
             """)
     Page<AccountEntity> findAllFiltered(Pageable pageable,
                                          @Param("branchId") Long branchId,
