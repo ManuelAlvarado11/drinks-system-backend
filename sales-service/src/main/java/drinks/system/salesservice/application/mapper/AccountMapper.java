@@ -66,6 +66,7 @@ public class AccountMapper {
         e.setQuantity(d.quantity());
         e.setUnitPrice(d.unitPrice());
         e.setSubtotal(d.subtotal());
+        e.setAddedAt(d.addedAt());
         e.setAddedBy(d.addedBy());
         e.setIsCancelled(d.isCancelled());
         return e;
