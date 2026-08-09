@@ -1,0 +1,10 @@
+﻿npx : npm ERR! could not determine executable to run
+En línea: 1 Carácter: 1
++ npx ng build --configuration=development 2>&1 | Out-File -FilePath "b ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm ERR! could ...ecutable to run:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+npm ERR! A complete log of this run can be found in: 
+C:\Users\manue\AppData\Local\npm-cache\_logs\2026-08-09T07_32_20_054Z-debug-0.log
