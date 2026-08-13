@@ -12,8 +12,8 @@ public interface ProductSalesRankingJpaRepository extends JpaRepository<ProductS
     @Query("""
             SELECT p FROM ProductSalesRankingEntity p
             WHERE (:branchId IS NULL OR p.branchId = :branchId)
-            AND (:periodStart IS NULL OR p.periodStart >= :periodStart)
-            AND (:periodEnd IS NULL OR p.periodEnd <= :periodEnd)
+            AND (CAST(:periodStart AS date) IS NULL OR p.periodStart >= :periodStart)
+            AND (CAST(:periodEnd AS date) IS NULL OR p.periodEnd <= :periodEnd)
             """)
     Page<ProductSalesRankingEntity> findAllFiltered(Pageable pageable,
             @Param("branchId") Long branchId,

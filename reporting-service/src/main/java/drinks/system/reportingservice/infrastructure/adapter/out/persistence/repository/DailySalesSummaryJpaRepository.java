@@ -12,8 +12,8 @@ public interface DailySalesSummaryJpaRepository extends JpaRepository<DailySales
     @Query("""
             SELECT d FROM DailySalesSummaryEntity d
             WHERE (:branchId IS NULL OR d.branchId = :branchId)
-            AND (:dateFrom IS NULL OR d.summaryDate >= :dateFrom)
-            AND (:dateTo IS NULL OR d.summaryDate <= :dateTo)
+            AND (CAST(:dateFrom AS date) IS NULL OR d.summaryDate >= :dateFrom)
+            AND (CAST(:dateTo AS date) IS NULL OR d.summaryDate <= :dateTo)
             """)
     Page<DailySalesSummaryEntity> findAllFiltered(Pageable pageable,
             @Param("branchId") Long branchId,
