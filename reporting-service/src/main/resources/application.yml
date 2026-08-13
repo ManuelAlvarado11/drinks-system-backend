@@ -39,3 +39,10 @@ management:
   endpoint:
     health:
       show-details: when-authorized
+
+reporting:
+  refresh:
+    daily-sales-ms: ${REPORTING_REFRESH_DAILY_MS:300000}
+    monthly-sales-ms: ${REPORTING_REFRESH_MONTHLY_MS:3600000}
+    product-ranking-ms: ${REPORTING_REFRESH_RANKING_MS:3600000}
+    inventory-status-ms: ${REPORTING_REFRESH_INVENTORY_MS:300000}
