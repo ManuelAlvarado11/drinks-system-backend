@@ -23,12 +23,13 @@ spring:
     baseline-on-migrate: true
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: none
     properties:
       hibernate:
         default_schema: access
         dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
+    defer-datasource-initialization: false
 
 server:
   port: 8081
