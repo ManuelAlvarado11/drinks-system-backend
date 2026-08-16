@@ -5,10 +5,10 @@ SET search_path TO access;
 
 -- =============================================================================
 -- Usuario admin inicial
--- Password: admin123 (BCrypt 12 rounds - CAMBIAR EN PRODUCCIÓN)
+-- Password: admin123 (BCrypt 10 rounds - CAMBIAR EN PRODUCCIÓN)
 -- =============================================================================
 INSERT INTO access.users (username, password_hash, email, full_name, is_active)
-VALUES ('admin', '$2a$12$LJ3m4vU7W5Q6nK8YpR1Xs.9Z5mTbfN4kXgHcD2wE7aByV3iJuS6Oe', 'admin@system.local', 'Administrador del Sistema', true);
+VALUES ('admin', '$2a$10$053oYVNjo6fzta/y5ULJqOR8kU5IkIi/24rwAcckpprpzDZS8O/Ky', 'admin@system.local', 'Administrador del Sistema', true);
 
 -- =============================================================================
 -- Asignación del rol ADMINISTRADOR_SISTEMA al usuario admin
