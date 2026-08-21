@@ -186,6 +186,7 @@ public class ReportingRefreshService {
             JOIN inventory.products p ON p.id = ps.product_id
             LEFT JOIN inventory.categories c ON c.id = p.category_id
             WHERE p.is_active = true
+              AND p.tracks_inventory = true
             """, Timestamp.from(now));
 
         log.debug("Inventory status refreshed");

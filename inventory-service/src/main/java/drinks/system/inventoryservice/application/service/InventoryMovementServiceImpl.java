@@ -4,13 +4,16 @@ import drinks.system.inventoryservice.application.dto.request.CreateMovementRequ
 import drinks.system.inventoryservice.application.dto.response.InventoryMovementResponse;
 import drinks.system.inventoryservice.application.mapper.InventoryMovementMapper;
 import drinks.system.inventoryservice.domain.model.InventoryMovement;
+import drinks.system.inventoryservice.domain.model.Product;
 import drinks.system.inventoryservice.domain.model.ProductStock;
 import drinks.system.inventoryservice.domain.port.in.InventoryMovementUseCase;
 import drinks.system.inventoryservice.domain.port.out.InventoryMovementRepositoryPort;
+import drinks.system.inventoryservice.domain.port.out.ProductRepositoryPort;
 import drinks.system.inventoryservice.domain.port.out.ProductStockRepositoryPort;
 import drinks.system.common.audit.AuditEvent;
 import drinks.system.common.dto.PageResponse;
 import drinks.system.common.exception.BusinessConflictException;
+import drinks.system.common.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
@@ -26,6 +29,7 @@ import java.util.Set;
 public class InventoryMovementServiceImpl implements InventoryMovementUseCase {
     private final InventoryMovementRepositoryPort movementRepository;
     private final ProductStockRepositoryPort stockRepository;
+    private final ProductRepositoryPort productRepository;
     private final InventoryMovementMapper mapper;
     private final ApplicationEventPublisher eventPublisher;
 
@@ -35,6 +39,12 @@ public class InventoryMovementServiceImpl implements InventoryMovementUseCase {
     public InventoryMovementResponse create(CreateMovementRequest req, Long userId) {
         if (!MANUAL_TYPES.contains(req.movementType())) {
             throw new BusinessConflictException("Tipo de movimiento no permitido manualmente: " + req.movementType());
+        }
+        // Validate product exists and tracks inventory
+        Product product = productRepository.findById(req.productId())
+                .orElseThrow(() -> new ResourceNotFoundException("Producto", req.productId()));
+        if (!Boolean.TRUE.equals(product.tracksInventory())) {
+            throw new BusinessConflictException("El producto '" + product.name() + "' no lleva control de inventario");
         }
         ProductStock stock = stockRepository.findByProductIdAndBranchId(req.productId(), req.branchId())
                 .orElse(new ProductStock(null, req.productId(), req.branchId(), 0, 0, null));
