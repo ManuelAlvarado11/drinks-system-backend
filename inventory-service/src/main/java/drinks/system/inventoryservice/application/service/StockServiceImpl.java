@@ -3,10 +3,12 @@ package drinks.system.inventoryservice.application.service;
 import drinks.system.inventoryservice.application.dto.request.StockDeductRequest;
 import drinks.system.inventoryservice.application.dto.request.UpdateStockConfigRequest;
 import drinks.system.inventoryservice.application.dto.response.ProductStockResponse;
+import drinks.system.inventoryservice.domain.model.Product;
 import drinks.system.inventoryservice.domain.model.InventoryMovement;
 import drinks.system.inventoryservice.domain.model.ProductStock;
 import drinks.system.inventoryservice.domain.port.in.StockUseCase;
 import drinks.system.inventoryservice.domain.port.out.InventoryMovementRepositoryPort;
+import drinks.system.inventoryservice.domain.port.out.ProductRepositoryPort;
 import drinks.system.inventoryservice.domain.port.out.ProductStockRepositoryPort;
 import drinks.system.common.dto.PageResponse;
 import drinks.system.common.exception.ResourceNotFoundException;
@@ -22,6 +24,7 @@ import java.util.List;
 public class StockServiceImpl implements StockUseCase {
     private final ProductStockRepositoryPort stockRepository;
     private final InventoryMovementRepositoryPort movementRepository;
+    private final ProductRepositoryPort productRepository;
 
     @Override @Transactional(readOnly = true)
     public PageResponse<ProductStockResponse> findByBranch(Pageable pageable, Long branchId, Boolean lowStock) {
@@ -49,6 +52,11 @@ public class StockServiceImpl implements StockUseCase {
     @Override @Transactional
     public void deductStock(StockDeductRequest request, Long userId) {
         for (StockDeductRequest.StockItem item : request.items()) {
+            // Skip products that don't track inventory (food, shots, etc.)
+            Product product = productRepository.findById(item.productId()).orElse(null);
+            if (product == null || !Boolean.TRUE.equals(product.tracksInventory())) {
+                continue;
+            }
             ProductStock stock = stockRepository.findByProductIdAndBranchId(item.productId(), request.branchId())
                     .orElse(new ProductStock(null, item.productId(), request.branchId(), 0, 0, null));
             int previousStock = stock.currentStock();
@@ -65,6 +73,11 @@ public class StockServiceImpl implements StockUseCase {
     @Override @Transactional
     public void addStock(StockDeductRequest request, Long userId) {
         for (StockDeductRequest.StockItem item : request.items()) {
+            // Skip products that don't track inventory (food, shots, etc.)
+            Product product = productRepository.findById(item.productId()).orElse(null);
+            if (product == null || !Boolean.TRUE.equals(product.tracksInventory())) {
+                continue;
+            }
             ProductStock stock = stockRepository.findByProductIdAndBranchId(item.productId(), request.branchId())
                     .orElse(new ProductStock(null, item.productId(), request.branchId(), 0, 0, null));
             int previousStock = stock.currentStock();

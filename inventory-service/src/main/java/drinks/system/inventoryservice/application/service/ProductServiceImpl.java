@@ -32,8 +32,10 @@ public class ProductServiceImpl implements ProductUseCase {
         if (productRepository.existsByCode(req.code())) {
             throw new BusinessConflictException("El código de producto ya existe: " + req.code());
         }
+        Boolean tracksInventory = req.tracksInventory() != null ? req.tracksInventory() : true;
         Product p = new Product(null, req.code(), req.name(), req.categoryId(), req.size(),
-                req.description(), req.costPrice(), req.salePrice(), true, null, null, null, userId, userId);
+                req.description(), req.costPrice(), req.salePrice(), tracksInventory,
+                true, null, null, null, userId, userId);
         Product saved = productRepository.save(p);
         eventPublisher.publishEvent(new AuditEvent(userId, null, "CREATE", "INVENTORY",
                 "Product", saved.id(), null, null, null, "Producto creado: " + saved.code()));
@@ -63,6 +65,7 @@ public class ProductServiceImpl implements ProductUseCase {
                 req.description() != null ? req.description() : existing.description(),
                 req.costPrice() != null ? req.costPrice() : existing.costPrice(),
                 req.salePrice() != null ? req.salePrice() : existing.salePrice(),
+                req.tracksInventory() != null ? req.tracksInventory() : existing.tracksInventory(),
                 existing.isActive(), existing.deletedAt(), existing.createdAt(), existing.updatedAt(),
                 existing.createdBy(), userId);
         Product saved = productRepository.save(updated);
@@ -76,7 +79,8 @@ public class ProductServiceImpl implements ProductUseCase {
         Product existing = productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Producto", id));
         Product deleted = new Product(existing.id(), existing.code(), existing.name(), existing.categoryId(),
                 existing.size(), existing.description(), existing.costPrice(), existing.salePrice(),
-                false, Instant.now(), existing.createdAt(), existing.updatedAt(), existing.createdBy(), existing.updatedBy());
+                existing.tracksInventory(), false, Instant.now(), existing.createdAt(), existing.updatedAt(),
+                existing.createdBy(), existing.updatedBy());
         productRepository.save(deleted);
         eventPublisher.publishEvent(new AuditEvent(null, null, "DELETE", "INVENTORY",
                 "Product", id, null, null, null, "Producto desactivado: " + existing.code()));

@@ -9,5 +9,6 @@ public record UpdateProductRequest(
         @Size(max = 50) String size,
         String description,
         BigDecimal costPrice,
-        BigDecimal salePrice
+        BigDecimal salePrice,
+        Boolean tracksInventory
 ) {}

@@ -27,6 +27,8 @@ public class ProductEntity {
     private BigDecimal costPrice = BigDecimal.ZERO;
     @Column(name = "sale_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal salePrice = BigDecimal.ZERO;
+    @Column(name = "tracks_inventory", nullable = false)
+    private Boolean tracksInventory = true;
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
     @Column(name = "deleted_at")

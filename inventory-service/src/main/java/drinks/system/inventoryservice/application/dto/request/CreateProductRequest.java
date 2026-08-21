@@ -12,5 +12,6 @@ public record CreateProductRequest(
         @Size(max = 50) String size,
         String description,
         @NotNull BigDecimal costPrice,
-        @NotNull BigDecimal salePrice
+        @NotNull BigDecimal salePrice,
+        Boolean tracksInventory
 ) {}
