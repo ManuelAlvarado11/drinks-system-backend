@@ -3,6 +3,7 @@ package drinks.system.accessservice.domain.port.in;
 import drinks.system.accessservice.application.dto.request.LoginRequest;
 import drinks.system.accessservice.application.dto.request.LogoutRequest;
 import drinks.system.accessservice.application.dto.request.RefreshTokenRequest;
+import drinks.system.accessservice.application.dto.request.SwitchBranchRequest;
 import drinks.system.accessservice.application.dto.response.AuthResponse;
 
 /**
@@ -16,4 +17,6 @@ public interface AuthUseCase {
     AuthResponse refresh(RefreshTokenRequest request);
 
     void logout(LogoutRequest request);
+
+    AuthResponse switchBranch(SwitchBranchRequest request, Long userId, String ipAddress);
 }

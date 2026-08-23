@@ -3,13 +3,16 @@ package drinks.system.accessservice.infrastructure.adapter.in.rest;
 import drinks.system.accessservice.application.dto.request.LoginRequest;
 import drinks.system.accessservice.application.dto.request.LogoutRequest;
 import drinks.system.accessservice.application.dto.request.RefreshTokenRequest;
+import drinks.system.accessservice.application.dto.request.SwitchBranchRequest;
 import drinks.system.accessservice.application.dto.response.AuthResponse;
 import drinks.system.accessservice.domain.port.in.AuthUseCase;
 import drinks.system.common.dto.ApiResponse;
+import drinks.system.common.security.UserPrincipal;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +49,17 @@ public class AuthController {
 
         authUseCase.logout(request);
         return ResponseEntity.ok(ApiResponse.success(null, "Sesión cerrada exitosamente"));
+    }
+
+    @PostMapping("/switch-branch")
+    public ResponseEntity<ApiResponse<AuthResponse>> switchBranch(
+            @Valid @RequestBody SwitchBranchRequest request,
+            @AuthenticationPrincipal UserPrincipal principal,
+            HttpServletRequest httpRequest) {
+
+        String ipAddress = extractIpAddress(httpRequest);
+        AuthResponse response = authUseCase.switchBranch(request, principal.userId(), ipAddress);
+        return ResponseEntity.ok(ApiResponse.success(response));
     }
 
     private String extractIpAddress(HttpServletRequest request) {

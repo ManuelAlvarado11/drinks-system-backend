@@ -3,6 +3,7 @@ package drinks.system.accessservice.application.service;
 import drinks.system.accessservice.application.dto.request.LoginRequest;
 import drinks.system.accessservice.application.dto.request.LogoutRequest;
 import drinks.system.accessservice.application.dto.request.RefreshTokenRequest;
+import drinks.system.accessservice.application.dto.request.SwitchBranchRequest;
 import drinks.system.accessservice.application.dto.response.AuthResponse;
 import drinks.system.accessservice.application.dto.response.UserProfileResponse;
 import drinks.system.accessservice.application.mapper.UserMapper;
@@ -188,6 +189,74 @@ public class AuthServiceImpl implements AuthUseCase {
     public void logout(LogoutRequest request) {
         String tokenHash = hashToken(request.refreshToken());
         refreshTokenRepository.revokeByTokenHash(tokenHash);
+    }
+
+    @Override
+    @Transactional
+    public AuthResponse switchBranch(SwitchBranchRequest request, Long userId, String ipAddress) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UnauthorizedException("Usuario no encontrado"));
+
+        if (!user.isActive()) {
+            throw new UnauthorizedException("La cuenta está desactivada");
+        }
+
+        // Validate user is authorized for the target branch
+        Long targetBranchId = request.branchId();
+        boolean authorized = user.branches() != null &&
+                user.branches().stream().anyMatch(b -> b.id().equals(targetBranchId));
+
+        if (!authorized) {
+            throw new UnauthorizedException("No tiene acceso a la sucursal seleccionada");
+        }
+
+        // Update user's active branch
+        User updatedUser = new User(user.id(), user.username(), user.passwordHash(), user.email(),
+                user.fullName(), targetBranchId, user.isActive(), user.lastLogin(), user.deletedAt(),
+                user.createdAt(), user.updatedAt(), user.createdBy(), user.updatedBy(),
+                user.roles(), user.branches());
+        userRepository.save(updatedUser);
+
+        // Generate new tokens with updated branchId
+        List<Role> roles = roleRepository.findByUserId(user.id());
+        List<Long> roleIds = roles.stream().map(Role::id).toList();
+        List<Permission> permissions = permissionRepository.findByRoleIds(roleIds);
+        List<String> permissionCodes = permissions.stream()
+                .map(Permission::code)
+                .distinct()
+                .toList();
+
+        String accessToken = jwtTokenProvider.generateToken(
+                user.id().toString(),
+                user.username(),
+                targetBranchId,
+                permissionCodes
+        );
+
+        String rawRefreshToken = UUID.randomUUID().toString();
+        String tokenHash = hashToken(rawRefreshToken);
+
+        RefreshToken refreshToken = new RefreshToken(
+                null,
+                user.id(),
+                tokenHash,
+                Instant.now().plus(refreshTokenExpirationDays, ChronoUnit.DAYS),
+                false,
+                ipAddress,
+                null
+        );
+        refreshTokenRepository.save(refreshToken);
+
+        List<String> roleNames = roles.stream().map(Role::name).toList();
+        UserProfileResponse profile = userMapper.toProfileResponse(updatedUser, roleNames, permissionCodes);
+
+        eventPublisher.publishEvent(new AuditEvent(
+                user.id(), user.username(), "SWITCH_BRANCH", "ACCESS",
+                "User", user.id(), null, null, ipAddress,
+                "Cambio de sucursal a branchId=" + targetBranchId
+        ));
+
+        return AuthResponse.of(accessToken, rawRefreshToken, expirationMinutes * 60, profile);
     }
 
     private String hashToken(String token) {
