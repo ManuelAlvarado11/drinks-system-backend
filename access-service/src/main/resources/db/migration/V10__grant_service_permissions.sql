@@ -37,3 +37,19 @@ GRANT SELECT ON ALL TABLES IN SCHEMA sales TO reporting_user;
 
 GRANT USAGE ON SCHEMA inventory TO reporting_user;
 GRANT SELECT ON ALL TABLES IN SCHEMA inventory TO reporting_user;
+
+-- =============================================================================
+-- Sales user needs cross-schema read access for name resolution
+-- (product names from inventory, user names from access)
+-- =============================================================================
+GRANT USAGE ON SCHEMA access TO sales_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA access TO sales_user;
+
+GRANT USAGE ON SCHEMA inventory TO sales_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA inventory TO sales_user;
+
+-- =============================================================================
+-- Inventory user needs cross-schema read access for branch name resolution
+-- =============================================================================
+GRANT USAGE ON SCHEMA access TO inventory_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA access TO inventory_user;
