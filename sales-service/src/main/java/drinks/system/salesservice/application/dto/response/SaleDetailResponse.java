@@ -13,7 +13,7 @@ public record SaleDetailResponse(
         List<SaleItemResponse> items
 ) {
     public record SaleItemResponse(
-            Long id, Long productId, Integer quantity,
+            Long id, Long productId, String productName, Integer quantity,
             BigDecimal unitPrice, BigDecimal subtotal, BigDecimal discount
     ) {}
 }

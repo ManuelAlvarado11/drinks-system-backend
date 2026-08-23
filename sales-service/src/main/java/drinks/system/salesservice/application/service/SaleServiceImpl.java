@@ -33,6 +33,7 @@ public class SaleServiceImpl implements SaleUseCase {
     private final CashRegisterRepositoryPort cashRegisterRepository;
     private final CashRegisterMovementRepositoryPort movementRepository;
     private final InventoryClient inventoryClient;
+    private final NameResolverPort nameResolver;
     private final SaleMapper saleMapper;
     private final ApplicationEventPublisher eventPublisher;
 
@@ -94,7 +95,14 @@ public class SaleServiceImpl implements SaleUseCase {
     public SaleDetailResponse findById(Long id) {
         Sale sale = saleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Venta", id));
         List<SaleDetail> details = saleDetailRepository.findBySaleId(id);
-        List<SaleDetailResponse.SaleItemResponse> items = details.stream().map(saleMapper::detailToResponse).toList();
+
+        // Resolve product names
+        java.util.Set<Long> productIds = details.stream().map(SaleDetail::productId).collect(java.util.stream.Collectors.toSet());
+        java.util.Map<Long, String> productNames = nameResolver.findProductNamesByIds(productIds);
+
+        List<SaleDetailResponse.SaleItemResponse> items = details.stream()
+                .map(d -> saleMapper.detailToResponse(d, productNames.getOrDefault(d.productId(), "Producto #" + d.productId())))
+                .toList();
         return saleMapper.toDetailResponse(sale, items);
     }
 

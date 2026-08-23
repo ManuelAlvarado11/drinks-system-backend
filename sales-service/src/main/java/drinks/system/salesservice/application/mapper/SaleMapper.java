@@ -74,7 +74,12 @@ public class SaleMapper {
     }
 
     public SaleDetailResponse.SaleItemResponse detailToResponse(SaleDetail d) {
-        return new SaleDetailResponse.SaleItemResponse(d.id(), d.productId(),
+        return new SaleDetailResponse.SaleItemResponse(d.id(), d.productId(), null,
+                d.quantity(), d.unitPrice(), d.subtotal(), d.discount());
+    }
+
+    public SaleDetailResponse.SaleItemResponse detailToResponse(SaleDetail d, String productName) {
+        return new SaleDetailResponse.SaleItemResponse(d.id(), d.productId(), productName,
                 d.quantity(), d.unitPrice(), d.subtotal(), d.discount());
     }
 }

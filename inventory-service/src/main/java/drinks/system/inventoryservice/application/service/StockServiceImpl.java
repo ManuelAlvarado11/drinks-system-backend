@@ -29,7 +29,15 @@ public class StockServiceImpl implements StockUseCase {
     @Override @Transactional(readOnly = true)
     public PageResponse<ProductStockResponse> findByBranch(Pageable pageable, Long branchId, Boolean lowStock) {
         Page<ProductStock> page = stockRepository.findByBranch(pageable, branchId, lowStock);
-        List<ProductStockResponse> content = page.getContent().stream().map(this::toResponse).toList();
+        // Batch-fetch product names to avoid N+1
+        List<Long> productIds = page.getContent().stream().map(ProductStock::productId).distinct().toList();
+        java.util.Map<Long, String> productNames = new java.util.HashMap<>();
+        for (Long pid : productIds) {
+            productRepository.findById(pid).ifPresent(p -> productNames.put(pid, p.name()));
+        }
+        List<ProductStockResponse> content = page.getContent().stream()
+                .map(s -> toResponse(s, productNames.getOrDefault(s.productId(), "Producto #" + s.productId())))
+                .toList();
         return PageResponse.of(page, content);
     }
 
@@ -37,7 +45,8 @@ public class StockServiceImpl implements StockUseCase {
     public ProductStockResponse findByProductAndBranch(Long productId, Long branchId) {
         ProductStock stock = stockRepository.findByProductIdAndBranchId(productId, branchId)
                 .orElseThrow(() -> new ResourceNotFoundException("Stock no encontrado para producto " + productId + " en sucursal " + branchId, productId));
-        return toResponse(stock);
+        String productName = productRepository.findById(productId).map(Product::name).orElse("Producto #" + productId);
+        return toResponse(stock, productName);
     }
 
     @Override @Transactional
@@ -91,9 +100,9 @@ public class StockServiceImpl implements StockUseCase {
         }
     }
 
-    private ProductStockResponse toResponse(ProductStock s) {
+    private ProductStockResponse toResponse(ProductStock s, String productName) {
         boolean isLow = s.currentStock() <= s.minimumStock();
-        return new ProductStockResponse(s.id(), s.productId(), s.branchId(),
+        return new ProductStockResponse(s.id(), s.productId(), s.branchId(), productName,
                 s.currentStock(), s.minimumStock(), isLow, s.updatedAt());
     }
 }

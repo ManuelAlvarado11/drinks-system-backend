@@ -21,8 +21,16 @@ public class InventoryMovementMapper {
         return e;
     }
     public InventoryMovementResponse toResponse(InventoryMovement m) {
-        return new InventoryMovementResponse(m.id(), m.productId(), m.branchId(), m.movementType(),
-                m.quantity(), m.previousStock(), m.newStock(), m.referenceType(), m.referenceId(),
-                m.notes(), m.createdAt(), m.createdBy());
+        return new InventoryMovementResponse(m.id(), m.productId(), m.branchId(),
+                null, null,
+                m.movementType(), m.quantity(), m.previousStock(), m.newStock(),
+                m.referenceType(), m.referenceId(), m.notes(), m.createdAt(), m.createdBy());
+    }
+
+    public InventoryMovementResponse toResponse(InventoryMovement m, String productName, String branchName) {
+        return new InventoryMovementResponse(m.id(), m.productId(), m.branchId(),
+                productName, branchName,
+                m.movementType(), m.quantity(), m.previousStock(), m.newStock(),
+                m.referenceType(), m.referenceId(), m.notes(), m.createdAt(), m.createdBy());
     }
 }

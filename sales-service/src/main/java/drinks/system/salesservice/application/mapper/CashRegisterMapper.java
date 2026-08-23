@@ -40,7 +40,13 @@ public class CashRegisterMapper {
     }
 
     public CashRegisterResponse toResponse(CashRegister d) {
-        return new CashRegisterResponse(d.id(), d.branchId(), d.userId(),
+        return new CashRegisterResponse(d.id(), d.branchId(), d.userId(), null,
+                d.openingAmount(), d.closingAmount(), d.expectedAmount(),
+                d.difference(), d.status(), d.openedAt(), d.closedAt(), d.notes());
+    }
+
+    public CashRegisterResponse toResponse(CashRegister d, String username) {
+        return new CashRegisterResponse(d.id(), d.branchId(), d.userId(), username,
                 d.openingAmount(), d.closingAmount(), d.expectedAmount(),
                 d.difference(), d.status(), d.openedAt(), d.closedAt(), d.notes());
     }

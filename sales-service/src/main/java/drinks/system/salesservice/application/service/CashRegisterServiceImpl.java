@@ -12,6 +12,7 @@ import drinks.system.salesservice.domain.model.CashRegisterMovement;
 import drinks.system.salesservice.domain.port.in.CashRegisterUseCase;
 import drinks.system.salesservice.domain.port.out.CashRegisterMovementRepositoryPort;
 import drinks.system.salesservice.domain.port.out.CashRegisterRepositoryPort;
+import drinks.system.salesservice.domain.port.out.NameResolverPort;
 import drinks.system.common.audit.AuditEvent;
 import drinks.system.common.dto.PageResponse;
 import drinks.system.common.exception.BusinessConflictException;
@@ -26,6 +27,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +37,7 @@ public class CashRegisterServiceImpl implements CashRegisterUseCase {
 
     private final CashRegisterRepositoryPort cashRegisterRepository;
     private final CashRegisterMovementRepositoryPort movementRepository;
+    private final NameResolverPort nameResolver;
     private final CashRegisterMapper mapper;
     private final ApplicationEventPublisher eventPublisher;
 
@@ -54,7 +59,15 @@ public class CashRegisterServiceImpl implements CashRegisterUseCase {
     @Transactional(readOnly = true)
     public PageResponse<CashRegisterResponse> findAll(Pageable pageable, Long branchId, String status, Long userId, Instant dateFrom, Instant dateTo) {
         Page<CashRegister> page = cashRegisterRepository.findAll(pageable, branchId, status, userId, dateFrom, dateTo);
-        List<CashRegisterResponse> content = page.getContent().stream().map(mapper::toResponse).toList();
+        List<CashRegister> registers = page.getContent();
+
+        // Batch-fetch usernames
+        Set<Long> userIds = registers.stream().map(CashRegister::userId).collect(Collectors.toSet());
+        Map<Long, String> usernames = nameResolver.findUsernamesByIds(userIds);
+
+        List<CashRegisterResponse> content = registers.stream()
+                .map(cr -> mapper.toResponse(cr, usernames.getOrDefault(cr.userId(), "Usuario #" + cr.userId())))
+                .toList();
         return PageResponse.of(page, content);
     }
 

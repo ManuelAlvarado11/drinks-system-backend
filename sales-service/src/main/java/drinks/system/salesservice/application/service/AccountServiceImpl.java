@@ -24,6 +24,9 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -36,6 +39,7 @@ public class AccountServiceImpl implements AccountUseCase {
     private final CashRegisterMovementRepositoryPort movementRepository;
     private final CashRegisterRepositoryPort cashRegisterRepository;
     private final InventoryClient inventoryClient;
+    private final NameResolverPort nameResolver;
     private final AccountMapper accountMapper;
     private final SaleMapper saleMapper;
     private final ApplicationEventPublisher eventPublisher;
@@ -70,7 +74,14 @@ public class AccountServiceImpl implements AccountUseCase {
         List<AccountDetail> details = detailRepository.findByAccountId(id);
         BigDecimal total = details.stream().filter(d -> !d.isCancelled())
                 .map(AccountDetail::subtotal).reduce(BigDecimal.ZERO, BigDecimal::add);
-        List<AccountItemResponse> items = details.stream().map(accountMapper::detailToResponse).toList();
+
+        // Resolve product names
+        Set<Long> productIds = details.stream().map(AccountDetail::productId).collect(Collectors.toSet());
+        Map<Long, String> productNames = nameResolver.findProductNamesByIds(productIds);
+
+        List<AccountItemResponse> items = details.stream()
+                .map(d -> accountMapper.detailToResponse(d, productNames.getOrDefault(d.productId(), "Producto #" + d.productId())))
+                .toList();
         return accountMapper.toDetailResponse(account, total, items);
     }
 

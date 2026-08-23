@@ -10,6 +10,7 @@ import drinks.system.inventoryservice.domain.port.in.InventoryMovementUseCase;
 import drinks.system.inventoryservice.domain.port.out.InventoryMovementRepositoryPort;
 import drinks.system.inventoryservice.domain.port.out.ProductRepositoryPort;
 import drinks.system.inventoryservice.domain.port.out.ProductStockRepositoryPort;
+import drinks.system.inventoryservice.domain.port.out.BranchNameResolverPort;
 import drinks.system.common.audit.AuditEvent;
 import drinks.system.common.dto.PageResponse;
 import drinks.system.common.exception.BusinessConflictException;
@@ -23,13 +24,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service @RequiredArgsConstructor
 public class InventoryMovementServiceImpl implements InventoryMovementUseCase {
     private final InventoryMovementRepositoryPort movementRepository;
     private final ProductStockRepositoryPort stockRepository;
     private final ProductRepositoryPort productRepository;
+    private final BranchNameResolverPort branchNameResolver;
     private final InventoryMovementMapper mapper;
     private final ApplicationEventPublisher eventPublisher;
 
@@ -72,7 +76,23 @@ public class InventoryMovementServiceImpl implements InventoryMovementUseCase {
     public PageResponse<InventoryMovementResponse> findAll(Pageable pageable, Long productId, Long branchId,
                                                             String type, Instant dateFrom, Instant dateTo) {
         Page<InventoryMovement> page = movementRepository.findAll(pageable, productId, branchId, type, dateFrom, dateTo);
-        List<InventoryMovementResponse> content = page.getContent().stream().map(mapper::toResponse).toList();
+        List<InventoryMovement> movements = page.getContent();
+
+        // Batch-fetch product and branch names
+        Set<Long> productIds = movements.stream().map(InventoryMovement::productId).collect(Collectors.toSet());
+        Set<Long> branchIds = movements.stream().map(InventoryMovement::branchId).collect(Collectors.toSet());
+
+        Map<Long, String> productNames = new java.util.HashMap<>();
+        for (Long pid : productIds) {
+            productRepository.findById(pid).ifPresent(p -> productNames.put(pid, p.name()));
+        }
+        Map<Long, String> branchNames = branchNameResolver.findNamesByIds(branchIds);
+
+        List<InventoryMovementResponse> content = movements.stream()
+                .map(m -> mapper.toResponse(m,
+                        productNames.getOrDefault(m.productId(), "Producto #" + m.productId()),
+                        branchNames.getOrDefault(m.branchId(), "Sucursal #" + m.branchId())))
+                .toList();
         return PageResponse.of(page, content);
     }
 }

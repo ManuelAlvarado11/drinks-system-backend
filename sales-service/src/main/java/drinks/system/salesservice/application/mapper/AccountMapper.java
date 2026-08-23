@@ -73,7 +73,12 @@ public class AccountMapper {
     }
 
     public AccountItemResponse detailToResponse(AccountDetail d) {
-        return new AccountItemResponse(d.id(), d.productId(), d.quantity(),
+        return new AccountItemResponse(d.id(), d.productId(), null, d.quantity(),
+                d.unitPrice(), d.subtotal(), d.addedAt(), d.addedBy(), d.isCancelled());
+    }
+
+    public AccountItemResponse detailToResponse(AccountDetail d, String productName) {
+        return new AccountItemResponse(d.id(), d.productId(), productName, d.quantity(),
                 d.unitPrice(), d.subtotal(), d.addedAt(), d.addedBy(), d.isCancelled());
     }
 }
