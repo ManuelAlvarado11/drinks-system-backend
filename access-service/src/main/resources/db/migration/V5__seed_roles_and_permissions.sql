@@ -167,7 +167,7 @@ WHERE r.code = 'CAJERO'
     -- Sucursales (lectura, necesario para contexto de sucursal)
     'BRANCHES_READ',
     -- Ventas operativas
-    'SALES_CREATE', 'SALES_READ',
+    'SALES_CREATE', 'SALES_READ', 'SALES_CUSTOMERS',
     'ACCOUNTS_READ', 'ACCOUNTS_CREATE', 'ACCOUNTS_UPDATE', 'ACCOUNTS_ADD_ITEMS',
     -- Caja operativa
     'CASH_OPEN', 'CASH_CLOSE', 'CASH_MOVEMENTS',
