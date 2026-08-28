@@ -25,7 +25,7 @@ public class CategoryServiceImpl implements CategoryUseCase {
 
     @Override @Transactional
     public CategoryResponse create(CreateCategoryRequest req, Long userId) {
-        Category c = new Category(null, req.name(), req.description(), req.parentCategoryId(),
+        Category c = new Category(null, req.name(), req.description(), req.icon(), req.parentCategoryId(),
                 true, null, null, null, userId, userId);
         Category saved = categoryRepository.save(c);
         eventPublisher.publishEvent(new AuditEvent(userId, null, "CREATE", "INVENTORY",
@@ -50,6 +50,7 @@ public class CategoryServiceImpl implements CategoryUseCase {
         Category updated = new Category(existing.id(),
                 req.name() != null ? req.name() : existing.name(),
                 req.description() != null ? req.description() : existing.description(),
+                req.icon() != null ? req.icon() : existing.icon(),
                 req.parentCategoryId() != null ? req.parentCategoryId() : existing.parentCategoryId(),
                 existing.isActive(), existing.deletedAt(), existing.createdAt(), existing.updatedAt(),
                 existing.createdBy(), userId);
@@ -62,7 +63,7 @@ public class CategoryServiceImpl implements CategoryUseCase {
     @Override @Transactional
     public void delete(Long id) {
         Category existing = categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Categoría", id));
-        Category deleted = new Category(existing.id(), existing.name(), existing.description(),
+        Category deleted = new Category(existing.id(), existing.name(), existing.description(), existing.icon(),
                 existing.parentCategoryId(), false, Instant.now(), existing.createdAt(), existing.updatedAt(),
                 existing.createdBy(), existing.updatedBy());
         categoryRepository.save(deleted);

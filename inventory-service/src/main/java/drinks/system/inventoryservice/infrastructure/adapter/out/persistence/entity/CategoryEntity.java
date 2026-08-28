@@ -16,6 +16,8 @@ public class CategoryEntity {
     private String name;
     @Column(length = 300)
     private String description;
+    @Column(length = 50)
+    private String icon;
     @Column(name = "parent_category_id")
     private Long parentCategoryId;
     @Column(name = "is_active", nullable = false)
