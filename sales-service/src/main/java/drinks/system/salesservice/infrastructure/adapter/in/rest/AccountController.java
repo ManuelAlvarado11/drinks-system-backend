@@ -3,6 +3,7 @@ package drinks.system.salesservice.infrastructure.adapter.in.rest;
 import drinks.system.salesservice.application.dto.request.AddAccountItemRequest;
 import drinks.system.salesservice.application.dto.request.CloseAccountRequest;
 import drinks.system.salesservice.application.dto.request.OpenAccountRequest;
+import drinks.system.salesservice.application.dto.request.UpdateAccountRequest;
 import drinks.system.salesservice.application.dto.response.*;
 import drinks.system.salesservice.domain.port.in.AccountUseCase;
 import drinks.system.common.dto.ApiResponse;
@@ -52,6 +53,15 @@ public class AccountController {
     @RequiresPermission("ACCOUNTS_READ")
     public ResponseEntity<ApiResponse<AccountDetailResponse>> findById(@PathVariable Long id) {
         return ResponseEntity.ok(ApiResponse.success(accountUseCase.findById(id)));
+    }
+
+    @PatchMapping("/{id}")
+    @RequiresPermission("ACCOUNTS_UPDATE")
+    public ResponseEntity<ApiResponse<AccountResponse>> update(
+            @PathVariable Long id,
+            @RequestBody UpdateAccountRequest req,
+            @AuthenticationPrincipal UserPrincipal p) {
+        return ResponseEntity.ok(ApiResponse.success(accountUseCase.update(id, req, p.userId())));
     }
 
     @PostMapping("/{id}/details")

@@ -3,6 +3,7 @@ package drinks.system.salesservice.application.service;
 import drinks.system.salesservice.application.dto.request.AddAccountItemRequest;
 import drinks.system.salesservice.application.dto.request.CloseAccountRequest;
 import drinks.system.salesservice.application.dto.request.OpenAccountRequest;
+import drinks.system.salesservice.application.dto.request.UpdateAccountRequest;
 import drinks.system.salesservice.application.dto.response.*;
 import drinks.system.salesservice.application.mapper.AccountMapper;
 import drinks.system.salesservice.application.mapper.SaleMapper;
@@ -83,6 +84,32 @@ public class AccountServiceImpl implements AccountUseCase {
                 .map(d -> accountMapper.detailToResponse(d, productNames.getOrDefault(d.productId(), "Producto #" + d.productId())))
                 .toList();
         return accountMapper.toDetailResponse(account, total, items);
+    }
+
+    @Override
+    @Transactional
+    public AccountResponse update(Long id, UpdateAccountRequest request, Long userId) {
+        Account account = accountRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cuenta", id));
+        if (!"OPEN".equals(account.status())) {
+            throw new BusinessConflictException("Solo se pueden editar cuentas abiertas");
+        }
+        // Apply only non-null fields (partial update)
+        String newName       = request.customerName()     != null ? request.customerName()     : account.customerName();
+        String newLastName   = request.customerLastName() != null ? request.customerLastName() : account.customerLastName();
+        String newTable      = request.tableNumber()      != null ? request.tableNumber()      : account.tableNumber();
+        String newNotes      = request.notes()            != null ? request.notes()            : account.notes();
+
+        Account updated = new Account(account.id(), account.branchId(), newName, newLastName,
+                newTable, account.internalCode(), account.status(), account.openedAt(), account.closedAt(),
+                account.openedBy(), account.closedBy(), newNotes, account.createdAt(), account.updatedAt(),
+                Collections.emptyList());
+        Account saved = accountRepository.save(updated);
+
+        BigDecimal total = calculateTotal(id);
+        eventPublisher.publishEvent(new AuditEvent(userId, null, "UPDATE", "SALES",
+                "Account", id, null, null, null, "Cuenta editada: " + id));
+        return accountMapper.toResponse(saved, total);
     }
 
     @Override
