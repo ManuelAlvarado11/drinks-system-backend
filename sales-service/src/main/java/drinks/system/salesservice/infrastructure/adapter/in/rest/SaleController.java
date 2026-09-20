@@ -2,9 +2,11 @@ package drinks.system.salesservice.infrastructure.adapter.in.rest;
 
 import drinks.system.salesservice.application.dto.request.CancelSaleRequest;
 import drinks.system.salesservice.application.dto.request.CreateDirectSaleRequest;
+import drinks.system.salesservice.application.dto.request.PrintTicketRequest;
 import drinks.system.salesservice.application.dto.response.SaleDetailResponse;
 import drinks.system.salesservice.application.dto.response.SaleResponse;
 import drinks.system.salesservice.domain.port.in.SaleUseCase;
+import drinks.system.salesservice.domain.port.in.TicketPrintUseCase;
 import drinks.system.common.dto.ApiResponse;
 import drinks.system.common.dto.PageResponse;
 import drinks.system.common.security.RequiresPermission;
@@ -25,6 +27,7 @@ import java.time.Instant;
 @RequiredArgsConstructor
 public class SaleController {
     private final SaleUseCase saleUseCase;
+    private final TicketPrintUseCase ticketPrintUseCase;
 
     @PostMapping
     @RequiresPermission("SALES_CREATE")
@@ -64,5 +67,22 @@ public class SaleController {
             @AuthenticationPrincipal UserPrincipal p) {
         saleUseCase.cancel(id, req, p.userId());
         return ResponseEntity.ok(ApiResponse.success(null, "Venta cancelada"));
+    }
+
+    /**
+     * Prints (or reprints) the receipt for a sale on an ESC/POS network printer.
+     * Body is optional: when {@code printerId} is null the branch default printer is used;
+     * {@code reprint=true} marks the ticket as a copy. Used both when closing an account
+     * and when reprinting from the sales history.
+     */
+    @PostMapping("/{id}/print")
+    @RequiresPermission("SALES_CREATE")
+    public ResponseEntity<ApiResponse<Void>> print(
+            @PathVariable Long id,
+            @RequestBody(required = false) PrintTicketRequest req) {
+        Long printerId = req != null ? req.printerId() : null;
+        boolean reprint = req != null && Boolean.TRUE.equals(req.reprint());
+        ticketPrintUseCase.printSale(id, printerId, reprint);
+        return ResponseEntity.ok(ApiResponse.success(null, "Ticket enviado a la impresora"));
     }
 }
