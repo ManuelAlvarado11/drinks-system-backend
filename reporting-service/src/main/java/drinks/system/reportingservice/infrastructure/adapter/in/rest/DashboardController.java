@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/reporting/v1/dashboard")
@@ -63,5 +64,30 @@ public class DashboardController {
             @RequestParam(required = false) Boolean lowStockOnly) {
         var pageable = PageRequest.of(page, Math.min(size, 100), Sort.by("productName"));
         return ResponseEntity.ok(ApiResponse.success(dashboardUseCase.getInventoryStatus(pageable, branchId, lowStockOnly)));
+    }
+
+    /**
+     * Returns sales broken down by category and day (or month).
+     *
+     * Query params:
+     *   branchId    – optional branch filter
+     *   dateFrom    – optional start date (inclusive, yyyy-MM-dd)
+     *   dateTo      – optional end date   (inclusive, yyyy-MM-dd)
+     *   categoryIds – optional repeatable param, e.g. ?categoryIds=3&categoryIds=7
+     *   groupBy     – "day" (default) | "month"
+     */
+    @GetMapping("/sales-by-category")
+    @RequiresPermission("REPORTING_READ")
+    public ResponseEntity<ApiResponse<PageResponse<SalesByCategoryResponse>>> getSalesByCategory(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "50") int size,
+            @RequestParam(required = false) Long branchId,
+            @RequestParam(required = false) LocalDate dateFrom,
+            @RequestParam(required = false) LocalDate dateTo,
+            @RequestParam(required = false) List<Long> categoryIds,
+            @RequestParam(defaultValue = "day") String groupBy) {
+        var pageable = PageRequest.of(page, Math.min(size, 200));
+        return ResponseEntity.ok(ApiResponse.success(
+                dashboardUseCase.getSalesByCategory(pageable, branchId, dateFrom, dateTo, categoryIds, groupBy)));
     }
 }

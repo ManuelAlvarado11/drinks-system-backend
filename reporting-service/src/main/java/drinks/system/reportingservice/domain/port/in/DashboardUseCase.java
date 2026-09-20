@@ -4,10 +4,23 @@ import drinks.system.reportingservice.application.dto.response.*;
 import drinks.system.common.dto.PageResponse;
 import org.springframework.data.domain.Pageable;
 import java.time.LocalDate;
+import java.util.List;
 
 public interface DashboardUseCase {
     PageResponse<DailySalesSummaryResponse> getDailySales(Pageable pageable, Long branchId, LocalDate dateFrom, LocalDate dateTo);
     PageResponse<MonthlySalesSummaryResponse> getMonthlySales(Pageable pageable, Long branchId, Integer year);
     PageResponse<ProductSalesRankingResponse> getProductRanking(Pageable pageable, Long branchId, LocalDate periodStart, LocalDate periodEnd);
     PageResponse<InventoryStatusResponse> getInventoryStatus(Pageable pageable, Long branchId, Boolean lowStockOnly);
+
+    /**
+     * Returns sales aggregated by category and day, filtered by an optional
+     * list of category IDs. If categoryIds is empty/null all categories are included.
+     */
+    PageResponse<SalesByCategoryResponse> getSalesByCategory(
+            Pageable pageable,
+            Long branchId,
+            LocalDate dateFrom,
+            LocalDate dateTo,
+            List<Long> categoryIds,
+            String groupBy);
 }

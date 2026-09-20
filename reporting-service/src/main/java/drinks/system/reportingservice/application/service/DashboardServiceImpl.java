@@ -21,6 +21,7 @@ public class DashboardServiceImpl implements DashboardUseCase {
     private final MonthlySalesSummaryRepositoryPort monthlyRepo;
     private final ProductSalesRankingRepositoryPort rankingRepo;
     private final InventoryStatusRepositoryPort inventoryRepo;
+    private final SalesByCategoryRepositoryPort salesByCategoryRepo;
     private final ReportingMapper mapper;
 
     @Override @Transactional(readOnly = true)
@@ -49,5 +50,14 @@ public class DashboardServiceImpl implements DashboardUseCase {
         Page<InventoryStatus> page = inventoryRepo.findAll(p, branchId, lowStockOnly);
         List<InventoryStatusResponse> content = page.getContent().stream().map(mapper::inventoryToResponse).toList();
         return PageResponse.of(page, content);
+    }
+
+    @Override @Transactional(readOnly = true)
+    public PageResponse<SalesByCategoryResponse> getSalesByCategory(
+            Pageable p, Long branchId, LocalDate dateFrom, LocalDate dateTo,
+            List<Long> categoryIds, String groupBy) {
+        Page<SalesByCategoryResponse> page =
+                salesByCategoryRepo.findSalesByCategory(p, branchId, dateFrom, dateTo, categoryIds, groupBy);
+        return PageResponse.of(page, page.getContent());
     }
 }

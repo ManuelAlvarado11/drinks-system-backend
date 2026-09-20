@@ -28,7 +28,6 @@ import java.time.ZoneId;
 public class ReportingRefreshService {
 
     private static final ZoneId BUSINESS_ZONE = ZoneId.of("America/El_Salvador");
-    private static final String TZ = "America/El_Salvador";
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -43,12 +42,14 @@ public class ReportingRefreshService {
         LocalDate today = LocalDate.now(BUSINESS_ZONE);
         Instant now = Instant.now();
 
+        // TZ is inlined in the SQL (not a bind parameter) so PostgreSQL can
+        // match the expression in SELECT, WHERE, and GROUP BY as identical text.
         jdbcTemplate.update("""
             INSERT INTO reporting.daily_sales_summary
                 (branch_id, summary_date, total_sales_count, total_revenue, total_discount, total_tax, net_revenue, refreshed_at)
             SELECT
                 s.branch_id,
-                (s.sale_date AT TIME ZONE ?)::date AS summary_date,
+                (s.sale_date AT TIME ZONE 'America/El_Salvador')::date AS summary_date,
                 COUNT(*) AS total_sales_count,
                 COALESCE(SUM(s.total_amount), 0) AS total_revenue,
                 COALESCE(SUM(s.discount_amount), 0) AS total_discount,
@@ -57,8 +58,8 @@ public class ReportingRefreshService {
                 ? AS refreshed_at
             FROM sales.sales s
             WHERE s.status = 'COMPLETED'
-              AND (s.sale_date AT TIME ZONE ?)::date = ?
-            GROUP BY s.branch_id, (s.sale_date AT TIME ZONE ?)::date
+              AND (s.sale_date AT TIME ZONE 'America/El_Salvador')::date = ?
+            GROUP BY s.branch_id, (s.sale_date AT TIME ZONE 'America/El_Salvador')::date
             ON CONFLICT (branch_id, summary_date)
             DO UPDATE SET
                 total_sales_count = EXCLUDED.total_sales_count,
@@ -67,7 +68,7 @@ public class ReportingRefreshService {
                 total_tax = EXCLUDED.total_tax,
                 net_revenue = EXCLUDED.net_revenue,
                 refreshed_at = EXCLUDED.refreshed_at
-            """, TZ, Timestamp.from(now), TZ, java.sql.Date.valueOf(today), TZ);
+            """, Timestamp.from(now), java.sql.Date.valueOf(today));
 
         log.debug("Daily sales summary refreshed for {}", today);
     }
@@ -85,13 +86,15 @@ public class ReportingRefreshService {
         int month = today.getMonthValue();
         Instant now = Instant.now();
 
+        // TZ is inlined in the SQL (not a bind parameter) so PostgreSQL can
+        // match the expression in SELECT, WHERE, and GROUP BY as identical text.
         jdbcTemplate.update("""
             INSERT INTO reporting.monthly_sales_summary
                 (branch_id, year, month, total_sales_count, total_revenue, total_discount, total_tax, net_revenue, refreshed_at)
             SELECT
                 s.branch_id,
-                EXTRACT(YEAR FROM (s.sale_date AT TIME ZONE ?))::int AS year,
-                EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE ?))::int AS month,
+                EXTRACT(YEAR  FROM (s.sale_date AT TIME ZONE 'America/El_Salvador'))::int AS year,
+                EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE 'America/El_Salvador'))::int AS month,
                 COUNT(*) AS total_sales_count,
                 COALESCE(SUM(s.total_amount), 0) AS total_revenue,
                 COALESCE(SUM(s.discount_amount), 0) AS total_discount,
@@ -100,11 +103,11 @@ public class ReportingRefreshService {
                 ? AS refreshed_at
             FROM sales.sales s
             WHERE s.status = 'COMPLETED'
-              AND EXTRACT(YEAR FROM (s.sale_date AT TIME ZONE ?)) = ?
-              AND EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE ?)) = ?
+              AND EXTRACT(YEAR  FROM (s.sale_date AT TIME ZONE 'America/El_Salvador')) = ?
+              AND EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE 'America/El_Salvador')) = ?
             GROUP BY s.branch_id,
-                     EXTRACT(YEAR FROM (s.sale_date AT TIME ZONE ?)),
-                     EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE ?))
+                     EXTRACT(YEAR  FROM (s.sale_date AT TIME ZONE 'America/El_Salvador')),
+                     EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE 'America/El_Salvador'))
             ON CONFLICT (branch_id, year, month)
             DO UPDATE SET
                 total_sales_count = EXCLUDED.total_sales_count,
@@ -113,7 +116,7 @@ public class ReportingRefreshService {
                 total_tax = EXCLUDED.total_tax,
                 net_revenue = EXCLUDED.net_revenue,
                 refreshed_at = EXCLUDED.refreshed_at
-            """, TZ, TZ, Timestamp.from(now), TZ, year, TZ, month, TZ, TZ);
+            """, Timestamp.from(now), year, month);
 
         log.debug("Monthly sales summary refreshed for {}/{}", year, month);
     }
@@ -155,12 +158,12 @@ public class ReportingRefreshService {
             LEFT JOIN inventory.products p ON p.id = sd.product_id
             LEFT JOIN inventory.categories c ON c.id = p.category_id
             WHERE s.status = 'COMPLETED'
-              AND (s.sale_date AT TIME ZONE ?)::date >= ?
-              AND (s.sale_date AT TIME ZONE ?)::date <= ?
+              AND (s.sale_date AT TIME ZONE 'America/El_Salvador')::date >= ?
+              AND (s.sale_date AT TIME ZONE 'America/El_Salvador')::date <= ?
             GROUP BY sd.product_id, s.branch_id, p.name, c.name
             """, java.sql.Date.valueOf(firstOfMonth), java.sql.Date.valueOf(today), Timestamp.from(now),
-                TZ, java.sql.Date.valueOf(firstOfMonth),
-                TZ, java.sql.Date.valueOf(today));
+                java.sql.Date.valueOf(firstOfMonth),
+                java.sql.Date.valueOf(today));
 
         log.debug("Product sales ranking refreshed for period {}/{}", firstOfMonth, today);
     }
