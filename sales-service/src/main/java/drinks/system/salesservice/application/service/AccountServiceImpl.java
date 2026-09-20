@@ -119,7 +119,12 @@ public class AccountServiceImpl implements AccountUseCase {
         if (!"OPEN".equals(account.status())) {
             throw new BusinessConflictException("La cuenta no está abierta");
         }
-        BigDecimal subtotal = request.unitPrice().multiply(BigDecimal.valueOf(request.quantity()));
+        // Use the exact line total when provided (e.g. presentation "Balde $8"),
+        // otherwise fall back to unitPrice × quantity. This avoids the rounding
+        // error where 8/6 = 1.33 → 1.33 × 6 = 7.98 instead of 8.00.
+        BigDecimal subtotal = request.lineTotal() != null
+                ? request.lineTotal()
+                : request.unitPrice().multiply(BigDecimal.valueOf(request.quantity()));
         AccountDetail detail = new AccountDetail(null, accountId, request.productId(),
                 request.quantity(), request.unitPrice(), subtotal, null, userId, false);
         AccountDetail saved = detailRepository.save(detail);
