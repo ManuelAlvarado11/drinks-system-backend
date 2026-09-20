@@ -18,6 +18,9 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class SaleRepositoryAdapter implements SaleRepositoryPort {
+
+    private static final ZoneId BUSINESS_ZONE = ZoneId.of("America/El_Salvador");
+
     private final SaleJpaRepository repo;
     private final SaleMapper mapper;
 
@@ -29,11 +32,12 @@ public class SaleRepositoryAdapter implements SaleRepositoryPort {
     public Page<Sale> findAll(Pageable p, Long branchId, String status, Instant from, Instant to, Long customerId, String paymentMethod) {
         return repo.findAllFiltered(p, branchId, status, from, to, customerId, paymentMethod).map(mapper::toDomain);
     }
+
     @Override
     public String generateSaleNumber(Long branchId) {
-        LocalDate today = LocalDate.now();
-        Instant startOfDay = today.atStartOfDay(ZoneId.systemDefault()).toInstant();
-        Instant endOfDay = today.plusDays(1).atStartOfDay(ZoneId.systemDefault()).toInstant();
+        LocalDate today = LocalDate.now(BUSINESS_ZONE);
+        Instant startOfDay = today.atStartOfDay(BUSINESS_ZONE).toInstant();
+        Instant endOfDay = today.plusDays(1).atStartOfDay(BUSINESS_ZONE).toInstant();
         long count = repo.countByBranchAndDate(branchId, startOfDay, endOfDay);
         String dateStr = today.format(DateTimeFormatter.BASIC_ISO_DATE);
         return String.format("VTA-%s-%04d", dateStr, count + 1);

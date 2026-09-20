@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 /**
  * Scheduled service that refreshes the reporting summary tables by querying
@@ -18,11 +19,16 @@ import java.time.LocalDate;
  * Frequencies:
  * - Daily sales & inventory status: every 5 minutes
  * - Monthly sales & product ranking: every hour
+ *
+ * All date calculations use America/El_Salvador to match the business timezone.
  */
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class ReportingRefreshService {
+
+    private static final ZoneId BUSINESS_ZONE = ZoneId.of("America/El_Salvador");
+    private static final String TZ = "America/El_Salvador";
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -34,7 +40,7 @@ public class ReportingRefreshService {
     @Transactional
     public void refreshDailySales() {
         log.debug("Refreshing daily sales summary...");
-        LocalDate today = LocalDate.now();
+        LocalDate today = LocalDate.now(BUSINESS_ZONE);
         Instant now = Instant.now();
 
         jdbcTemplate.update("""
@@ -42,7 +48,7 @@ public class ReportingRefreshService {
                 (branch_id, summary_date, total_sales_count, total_revenue, total_discount, total_tax, net_revenue, refreshed_at)
             SELECT
                 s.branch_id,
-                s.sale_date::date AS summary_date,
+                (s.sale_date AT TIME ZONE ?)::date AS summary_date,
                 COUNT(*) AS total_sales_count,
                 COALESCE(SUM(s.total_amount), 0) AS total_revenue,
                 COALESCE(SUM(s.discount_amount), 0) AS total_discount,
@@ -51,8 +57,8 @@ public class ReportingRefreshService {
                 ? AS refreshed_at
             FROM sales.sales s
             WHERE s.status = 'COMPLETED'
-              AND s.sale_date::date = ?
-            GROUP BY s.branch_id, s.sale_date::date
+              AND (s.sale_date AT TIME ZONE ?)::date = ?
+            GROUP BY s.branch_id, (s.sale_date AT TIME ZONE ?)::date
             ON CONFLICT (branch_id, summary_date)
             DO UPDATE SET
                 total_sales_count = EXCLUDED.total_sales_count,
@@ -61,7 +67,7 @@ public class ReportingRefreshService {
                 total_tax = EXCLUDED.total_tax,
                 net_revenue = EXCLUDED.net_revenue,
                 refreshed_at = EXCLUDED.refreshed_at
-            """, Timestamp.from(now), java.sql.Date.valueOf(today));
+            """, TZ, Timestamp.from(now), TZ, java.sql.Date.valueOf(today), TZ);
 
         log.debug("Daily sales summary refreshed for {}", today);
     }
@@ -74,7 +80,7 @@ public class ReportingRefreshService {
     @Transactional
     public void refreshMonthlySales() {
         log.debug("Refreshing monthly sales summary...");
-        LocalDate today = LocalDate.now();
+        LocalDate today = LocalDate.now(BUSINESS_ZONE);
         int year = today.getYear();
         int month = today.getMonthValue();
         Instant now = Instant.now();
@@ -84,8 +90,8 @@ public class ReportingRefreshService {
                 (branch_id, year, month, total_sales_count, total_revenue, total_discount, total_tax, net_revenue, refreshed_at)
             SELECT
                 s.branch_id,
-                EXTRACT(YEAR FROM s.sale_date)::int AS year,
-                EXTRACT(MONTH FROM s.sale_date)::int AS month,
+                EXTRACT(YEAR FROM (s.sale_date AT TIME ZONE ?))::int AS year,
+                EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE ?))::int AS month,
                 COUNT(*) AS total_sales_count,
                 COALESCE(SUM(s.total_amount), 0) AS total_revenue,
                 COALESCE(SUM(s.discount_amount), 0) AS total_discount,
@@ -94,9 +100,11 @@ public class ReportingRefreshService {
                 ? AS refreshed_at
             FROM sales.sales s
             WHERE s.status = 'COMPLETED'
-              AND EXTRACT(YEAR FROM s.sale_date) = ?
-              AND EXTRACT(MONTH FROM s.sale_date) = ?
-            GROUP BY s.branch_id, EXTRACT(YEAR FROM s.sale_date), EXTRACT(MONTH FROM s.sale_date)
+              AND EXTRACT(YEAR FROM (s.sale_date AT TIME ZONE ?)) = ?
+              AND EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE ?)) = ?
+            GROUP BY s.branch_id,
+                     EXTRACT(YEAR FROM (s.sale_date AT TIME ZONE ?)),
+                     EXTRACT(MONTH FROM (s.sale_date AT TIME ZONE ?))
             ON CONFLICT (branch_id, year, month)
             DO UPDATE SET
                 total_sales_count = EXCLUDED.total_sales_count,
@@ -105,7 +113,7 @@ public class ReportingRefreshService {
                 total_tax = EXCLUDED.total_tax,
                 net_revenue = EXCLUDED.net_revenue,
                 refreshed_at = EXCLUDED.refreshed_at
-            """, Timestamp.from(now), year, month);
+            """, TZ, TZ, Timestamp.from(now), TZ, year, TZ, month, TZ, TZ);
 
         log.debug("Monthly sales summary refreshed for {}/{}", year, month);
     }
@@ -118,7 +126,7 @@ public class ReportingRefreshService {
     @Transactional
     public void refreshProductRanking() {
         log.debug("Refreshing product sales ranking...");
-        LocalDate today = LocalDate.now();
+        LocalDate today = LocalDate.now(BUSINESS_ZONE);
         LocalDate firstOfMonth = today.withDayOfMonth(1);
         Instant now = Instant.now();
 
@@ -147,10 +155,12 @@ public class ReportingRefreshService {
             LEFT JOIN inventory.products p ON p.id = sd.product_id
             LEFT JOIN inventory.categories c ON c.id = p.category_id
             WHERE s.status = 'COMPLETED'
-              AND s.sale_date::date >= ?
-              AND s.sale_date::date <= ?
+              AND (s.sale_date AT TIME ZONE ?)::date >= ?
+              AND (s.sale_date AT TIME ZONE ?)::date <= ?
             GROUP BY sd.product_id, s.branch_id, p.name, c.name
-            """, java.sql.Date.valueOf(firstOfMonth), java.sql.Date.valueOf(today), Timestamp.from(now), java.sql.Date.valueOf(firstOfMonth), java.sql.Date.valueOf(today));
+            """, java.sql.Date.valueOf(firstOfMonth), java.sql.Date.valueOf(today), Timestamp.from(now),
+                TZ, java.sql.Date.valueOf(firstOfMonth),
+                TZ, java.sql.Date.valueOf(today));
 
         log.debug("Product sales ranking refreshed for period {}/{}", firstOfMonth, today);
     }
